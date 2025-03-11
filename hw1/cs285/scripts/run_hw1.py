@@ -11,6 +11,7 @@ import time
 import gym
 
 import numpy as np
+import pandas as pd
 import torch
 
 from cs285.infrastructure import pytorch_util as ptu
@@ -112,6 +113,7 @@ def run_training_loop(params):
     # init vars at beginning of training
     total_envsteps = 0
     start_time = time.time()
+    df = pd.DataFrame(columns=['iter', 'mode', 'avg_return', 'std_return'])
 
     for itr in range(params['n_iter']):
         print("\n\n********** Iteration %i ************"%itr)
@@ -208,11 +210,30 @@ def run_training_loop(params):
                 logger.log_scalar(value, key, itr)
             print('Done logging...\n\n')
 
+            if itr == 0:
+                df_row_train = pd.DataFrame([{
+                    "iter": itr,
+                    "mode": "train",
+                    "avg_return": logs["Train_AverageReturn"],
+                    "std_return": logs["Train_StdReturn"],
+                }])
+                df = pd.concat([df, df_row_train], ignore_index=True)
+
+            df_row_eval = pd.DataFrame([{
+                "iter": itr,
+                "mode": "eval",
+                "avg_return": logs["Eval_AverageReturn"],
+                "std_return": logs["Eval_StdReturn"],
+            }])
+            df = pd.concat([df, df_row_eval], ignore_index=True)
+
             logger.flush()
 
         if params['save_params']:
             print('\nSaving agent params')
             actor.save('{}/policy_itr_{}.pt'.format(params['logdir'], itr))
+
+    df.to_csv('q2_logs.csv', index=True)
 
 
 def main():

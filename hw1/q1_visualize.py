@@ -3,7 +3,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-df = pd.read_csv('log')
+df = pd.read_csv('q1_logs.csv')
 x = df['n_steps']
 y = df['Eval_AverageReturn']
 error = df['Eval_StdReturn']

@@ -9,5 +9,5 @@ for n_steps ({1000..30000..1000}) {
                 --expert_data cs285/expert_data/expert_data_$1-v4.pkl \
                 --video_log_freq -1 \
                 --train_batch_size 1000 \
-                --num_agent_train_steps_per_iter $n_steps >> log
+                --num_agent_train_steps_per_iter $n_steps >> q1_logs.csv
 }
