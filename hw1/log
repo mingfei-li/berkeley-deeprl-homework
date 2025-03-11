@@ -1,0 +1,1110 @@
+n_steps,Eval_AverageReturn,Eval_StdReturn
+1000,879.5137939453125,202.2581329345703
+2000,1140.393310546875,441.8104553222656
+3000,1435.2750244140625,790.8992919921875
+4000,1673.223388671875,275.283447265625
+5000,1438.2369384765625,356.1046142578125
+6000,1767.287109375,526.2984008789062
+7000,1446.036865234375,606.7919921875
+8000,1486.3214111328125,506.98504638671875
+9000,1178.9678955078125,407.63702392578125
+10000,2348.72216796875,573.1747436523438
+11000,1098.3465576171875,304.5499572753906
+12000,866.9910888671875,160.02862548828125
+13000,1585.6202392578125,419.2803649902344
+14000,1578.21923828125,521.1456298828125
+15000,1367.361572265625,379.32623291015625
+16000,1935.439208984375,531.1651000976562
+17000,2319.3212890625,839.6470336914062
+18000,914.226806640625,137.56097412109375
+19000,1733.987548828125,554.675048828125
+20000,2371.9375,1058.137939453125
+21000,1354.7685546875,318.56390380859375
+22000,1483.08935546875,785.409912109375
+23000,1756.477294921875,837.6041870117188
+24000,1588.3577880859375,914.9927978515625
+25000,2641.817626953125,806.0126953125
+26000,1593.1925048828125,764.7455444335938
+27000,1305.4544677734375,381.9524230957031
+28000,2128.49462890625,788.170166015625
+29000,1822.412109375,703.7327880859375
+30000,1744.010498046875,792.1654052734375n_steps = 1000
+########################
+logging outputs to  /Users/ml/Documents/GitHub/berkeley-deeprl-homework/hw1/cs285/scripts/../../data/q1_bc_hopper_Hopper-v4_10-03-2025_18-56-33
+########################
+GPU not detected. Defaulting to CPU.
+Loading expert policy from... cs285/policies/experts/Hopper.pkl
+obs (1, 11) (1, 11)
+Done restoring expert policy...
+
+
+********** Iteration 0 ************
+
+Collecting data to be used for training...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 1375.9656982421875
+Eval_StdReturn : 320.9273986816406
+Eval_MaxReturn : 2471.179443359375
+Eval_MinReturn : 1184.2601318359375
+Eval_AverageEpLen : 379.35714285714283
+Train_AverageReturn : 3717.5129936182307
+Train_StdReturn : 0.3530361779417035
+Train_MaxReturn : 3717.8660297961724
+Train_MinReturn : 3717.159957440289
+Train_AverageEpLen : 1000.0
+Training Loss : -0.8473190665245056
+Train_EnvstepsSoFar : 0
+TimeSinceStart : 1.1270179748535156
+Initial_DataCollection_AverageReturn : 3717.5129936182307
+Done logging...
+
+
+n_steps = 2000
+########################
+logging outputs to  /Users/ml/Documents/GitHub/berkeley-deeprl-homework/hw1/cs285/scripts/../../data/q1_bc_hopper_Hopper-v4_10-03-2025_18-56-35
+########################
+GPU not detected. Defaulting to CPU.
+Loading expert policy from... cs285/policies/experts/Hopper.pkl
+obs (1, 11) (1, 11)
+Done restoring expert policy...
+
+
+********** Iteration 0 ************
+
+Collecting data to be used for training...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 2049.4130859375
+Eval_StdReturn : 714.0488891601562
+Eval_MaxReturn : 3543.6572265625
+Eval_MinReturn : 1418.89453125
+Eval_AverageEpLen : 547.2
+Train_AverageReturn : 3717.5129936182307
+Train_StdReturn : 0.3530361779417035
+Train_MaxReturn : 3717.8660297961724
+Train_MinReturn : 3717.159957440289
+Train_AverageEpLen : 1000.0
+Training Loss : -2.038411855697632
+Train_EnvstepsSoFar : 0
+TimeSinceStart : 1.7697169780731201
+Initial_DataCollection_AverageReturn : 3717.5129936182307
+Done logging...
+
+
+n_steps = 3000
+########################
+logging outputs to  /Users/ml/Documents/GitHub/berkeley-deeprl-homework/hw1/cs285/scripts/../../data/q1_bc_hopper_Hopper-v4_10-03-2025_18-56-37
+########################
+GPU not detected. Defaulting to CPU.
+Loading expert policy from... cs285/policies/experts/Hopper.pkl
+obs (1, 11) (1, 11)
+Done restoring expert policy...
+
+
+********** Iteration 0 ************
+
+Collecting data to be used for training...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 2789.0234375
+Eval_StdReturn : 923.7379760742188
+Eval_MaxReturn : 3701.095458984375
+Eval_MinReturn : 1381.613525390625
+Eval_AverageEpLen : 773.8571428571429
+Train_AverageReturn : 3717.5129936182307
+Train_StdReturn : 0.3530361779417035
+Train_MaxReturn : 3717.8660297961724
+Train_MinReturn : 3717.159957440289
+Train_AverageEpLen : 1000.0
+Training Loss : -2.461519479751587
+Train_EnvstepsSoFar : 0
+TimeSinceStart : 2.450732946395874
+Initial_DataCollection_AverageReturn : 3717.5129936182307
+Done logging...
+
+
+n_steps = 4000
+########################
+logging outputs to  /Users/ml/Documents/GitHub/berkeley-deeprl-homework/hw1/cs285/scripts/../../data/q1_bc_hopper_Hopper-v4_10-03-2025_18-56-40
+########################
+GPU not detected. Defaulting to CPU.
+Loading expert policy from... cs285/policies/experts/Hopper.pkl
+obs (1, 11) (1, 11)
+Done restoring expert policy...
+
+
+********** Iteration 0 ************
+
+Collecting data to be used for training...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 1941.883056640625
+Eval_StdReturn : 1001.025390625
+Eval_MaxReturn : 3767.11328125
+Eval_MinReturn : 1009.2239379882812
+Eval_AverageEpLen : 529.6
+Train_AverageReturn : 3717.5129936182307
+Train_StdReturn : 0.3530361779417035
+Train_MaxReturn : 3717.8660297961724
+Train_MinReturn : 3717.159957440289
+Train_AverageEpLen : 1000.0
+Training Loss : -2.254706859588623
+Train_EnvstepsSoFar : 0
+TimeSinceStart : 3.0273401737213135
+Initial_DataCollection_AverageReturn : 3717.5129936182307
+Done logging...
+
+
+n_steps = 5000
+########################
+logging outputs to  /Users/ml/Documents/GitHub/berkeley-deeprl-homework/hw1/cs285/scripts/../../data/q1_bc_hopper_Hopper-v4_10-03-2025_18-56-43
+########################
+GPU not detected. Defaulting to CPU.
+Loading expert policy from... cs285/policies/experts/Hopper.pkl
+obs (1, 11) (1, 11)
+Done restoring expert policy...
+
+
+********** Iteration 0 ************
+
+Collecting data to be used for training...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 1602.1219482421875
+Eval_StdReturn : 464.62799072265625
+Eval_MaxReturn : 2474.283447265625
+Eval_MinReturn : 1103.2843017578125
+Eval_AverageEpLen : 443.0
+Train_AverageReturn : 3717.5129936182307
+Train_StdReturn : 0.3530361779417035
+Train_MaxReturn : 3717.8660297961724
+Train_MinReturn : 3717.159957440289
+Train_AverageEpLen : 1000.0
+Training Loss : -2.343769073486328
+Train_EnvstepsSoFar : 0
+TimeSinceStart : 3.6164159774780273
+Initial_DataCollection_AverageReturn : 3717.5129936182307
+Done logging...
+
+
+n_steps = 6000
+########################
+logging outputs to  /Users/ml/Documents/GitHub/berkeley-deeprl-homework/hw1/cs285/scripts/../../data/q1_bc_hopper_Hopper-v4_10-03-2025_18-56-47
+########################
+GPU not detected. Defaulting to CPU.
+Loading expert policy from... cs285/policies/experts/Hopper.pkl
+obs (1, 11) (1, 11)
+Done restoring expert policy...
+
+
+********** Iteration 0 ************
+
+Collecting data to be used for training...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 2387.43603515625
+Eval_StdReturn : 961.59423828125
+Eval_MaxReturn : 3507.3818359375
+Eval_MinReturn : 872.421142578125
+Eval_AverageEpLen : 669.625
+Train_AverageReturn : 3717.5129936182307
+Train_StdReturn : 0.3530361779417035
+Train_MaxReturn : 3717.8660297961724
+Train_MinReturn : 3717.159957440289
+Train_AverageEpLen : 1000.0
+Training Loss : -2.7567005157470703
+Train_EnvstepsSoFar : 0
+TimeSinceStart : 4.2914488315582275
+Initial_DataCollection_AverageReturn : 3717.5129936182307
+Done logging...
+
+
+n_steps = 7000
+########################
+logging outputs to  /Users/ml/Documents/GitHub/berkeley-deeprl-homework/hw1/cs285/scripts/../../data/q1_bc_hopper_Hopper-v4_10-03-2025_18-56-52
+########################
+GPU not detected. Defaulting to CPU.
+Loading expert policy from... cs285/policies/experts/Hopper.pkl
+obs (1, 11) (1, 11)
+Done restoring expert policy...
+
+
+********** Iteration 0 ************
+
+Collecting data to be used for training...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 3497.6708984375
+Eval_StdReturn : 223.37042236328125
+Eval_MaxReturn : 3712.26318359375
+Eval_MinReturn : 3121.863525390625
+Eval_AverageEpLen : 964.1666666666666
+Train_AverageReturn : 3717.5129936182307
+Train_StdReturn : 0.3530361779417035
+Train_MaxReturn : 3717.8660297961724
+Train_MinReturn : 3717.159957440289
+Train_AverageEpLen : 1000.0
+Training Loss : -2.853724956512451
+Train_EnvstepsSoFar : 0
+TimeSinceStart : 4.911746025085449
+Initial_DataCollection_AverageReturn : 3717.5129936182307
+Done logging...
+
+
+n_steps = 8000
+########################
+logging outputs to  /Users/ml/Documents/GitHub/berkeley-deeprl-homework/hw1/cs285/scripts/../../data/q1_bc_hopper_Hopper-v4_10-03-2025_18-56-58
+########################
+GPU not detected. Defaulting to CPU.
+Loading expert policy from... cs285/policies/experts/Hopper.pkl
+obs (1, 11) (1, 11)
+Done restoring expert policy...
+
+
+********** Iteration 0 ************
+
+Collecting data to be used for training...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 2734.443603515625
+Eval_StdReturn : 1159.6903076171875
+Eval_MaxReturn : 3719.29248046875
+Eval_MinReturn : 882.4995727539062
+Eval_AverageEpLen : 772.0
+Train_AverageReturn : 3717.5129936182307
+Train_StdReturn : 0.3530361779417035
+Train_MaxReturn : 3717.8660297961724
+Train_MinReturn : 3717.159957440289
+Train_AverageEpLen : 1000.0
+Training Loss : -2.8342125415802
+Train_EnvstepsSoFar : 0
+TimeSinceStart : 5.528947114944458
+Initial_DataCollection_AverageReturn : 3717.5129936182307
+Done logging...
+
+
+n_steps = 9000
+########################
+logging outputs to  /Users/ml/Documents/GitHub/berkeley-deeprl-homework/hw1/cs285/scripts/../../data/q1_bc_hopper_Hopper-v4_10-03-2025_18-57-04
+########################
+GPU not detected. Defaulting to CPU.
+Loading expert policy from... cs285/policies/experts/Hopper.pkl
+obs (1, 11) (1, 11)
+Done restoring expert policy...
+
+
+********** Iteration 0 ************
+
+Collecting data to be used for training...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 3302.927978515625
+Eval_StdReturn : 338.92596435546875
+Eval_MaxReturn : 3715.13037109375
+Eval_MinReturn : 2749.779296875
+Eval_AverageEpLen : 944.1666666666666
+Train_AverageReturn : 3717.5129936182307
+Train_StdReturn : 0.3530361779417035
+Train_MaxReturn : 3717.8660297961724
+Train_MinReturn : 3717.159957440289
+Train_AverageEpLen : 1000.0
+Training Loss : -2.861654281616211
+Train_EnvstepsSoFar : 0
+TimeSinceStart : 6.366015195846558
+Initial_DataCollection_AverageReturn : 3717.5129936182307
+Done logging...
+
+
+n_steps = 10000
+########################
+logging outputs to  /Users/ml/Documents/GitHub/berkeley-deeprl-homework/hw1/cs285/scripts/../../data/q1_bc_hopper_Hopper-v4_10-03-2025_18-57-10
+########################
+GPU not detected. Defaulting to CPU.
+Loading expert policy from... cs285/policies/experts/Hopper.pkl
+obs (1, 11) (1, 11)
+Done restoring expert policy...
+
+
+********** Iteration 0 ************
+
+Collecting data to be used for training...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 3509.770751953125
+Eval_StdReturn : 455.51483154296875
+Eval_MaxReturn : 3731.212158203125
+Eval_MinReturn : 2491.42822265625
+Eval_AverageEpLen : 945.0
+Train_AverageReturn : 3717.5129936182307
+Train_StdReturn : 0.3530361779417035
+Train_MaxReturn : 3717.8660297961724
+Train_MinReturn : 3717.159957440289
+Train_AverageEpLen : 1000.0
+Training Loss : -3.004513740539551
+Train_EnvstepsSoFar : 0
+TimeSinceStart : 6.655198335647583
+Initial_DataCollection_AverageReturn : 3717.5129936182307
+Done logging...
+
+
+n_steps = 11000
+########################
+logging outputs to  /Users/ml/Documents/GitHub/berkeley-deeprl-homework/hw1/cs285/scripts/../../data/q1_bc_hopper_Hopper-v4_10-03-2025_18-57-17
+########################
+GPU not detected. Defaulting to CPU.
+Loading expert policy from... cs285/policies/experts/Hopper.pkl
+obs (1, 11) (1, 11)
+Done restoring expert policy...
+
+
+********** Iteration 0 ************
+
+Collecting data to be used for training...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 3076.27001953125
+Eval_StdReturn : 860.98779296875
+Eval_MaxReturn : 3730.47412109375
+Eval_MinReturn : 1215.1082763671875
+Eval_AverageEpLen : 856.0
+Train_AverageReturn : 3717.5129936182307
+Train_StdReturn : 0.3530361779417035
+Train_MaxReturn : 3717.8660297961724
+Train_MinReturn : 3717.159957440289
+Train_AverageEpLen : 1000.0
+Training Loss : -3.027308225631714
+Train_EnvstepsSoFar : 0
+TimeSinceStart : 7.6809210777282715
+Initial_DataCollection_AverageReturn : 3717.5129936182307
+Done logging...
+
+
+n_steps = 12000
+########################
+logging outputs to  /Users/ml/Documents/GitHub/berkeley-deeprl-homework/hw1/cs285/scripts/../../data/q1_bc_hopper_Hopper-v4_10-03-2025_18-57-26
+########################
+GPU not detected. Defaulting to CPU.
+Loading expert policy from... cs285/policies/experts/Hopper.pkl
+obs (1, 11) (1, 11)
+Done restoring expert policy...
+
+
+********** Iteration 0 ************
+
+Collecting data to be used for training...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 3486.08984375
+Eval_StdReturn : 380.7098083496094
+Eval_MaxReturn : 3714.3486328125
+Eval_MinReturn : 2675.486328125
+Eval_AverageEpLen : 933.3333333333334
+Train_AverageReturn : 3717.5129936182307
+Train_StdReturn : 0.3530361779417035
+Train_MaxReturn : 3717.8660297961724
+Train_MinReturn : 3717.159957440289
+Train_AverageEpLen : 1000.0
+Training Loss : -3.0050582885742188
+Train_EnvstepsSoFar : 0
+TimeSinceStart : 8.043927907943726
+Initial_DataCollection_AverageReturn : 3717.5129936182307
+Done logging...
+
+
+n_steps = 13000
+########################
+logging outputs to  /Users/ml/Documents/GitHub/berkeley-deeprl-homework/hw1/cs285/scripts/../../data/q1_bc_hopper_Hopper-v4_10-03-2025_18-57-34
+########################
+GPU not detected. Defaulting to CPU.
+Loading expert policy from... cs285/policies/experts/Hopper.pkl
+obs (1, 11) (1, 11)
+Done restoring expert policy...
+
+
+********** Iteration 0 ************
+
+Collecting data to be used for training...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 2690.984130859375
+Eval_StdReturn : 1180.48388671875
+Eval_MaxReturn : 3717.38671875
+Eval_MinReturn : 1215.2149658203125
+Eval_AverageEpLen : 732.0
+Train_AverageReturn : 3717.5129936182307
+Train_StdReturn : 0.3530361779417035
+Train_MaxReturn : 3717.8660297961724
+Train_MinReturn : 3717.159957440289
+Train_AverageEpLen : 1000.0
+Training Loss : -2.637908935546875
+Train_EnvstepsSoFar : 0
+TimeSinceStart : 8.710174798965454
+Initial_DataCollection_AverageReturn : 3717.5129936182307
+Done logging...
+
+
+n_steps = 14000
+########################
+logging outputs to  /Users/ml/Documents/GitHub/berkeley-deeprl-homework/hw1/cs285/scripts/../../data/q1_bc_hopper_Hopper-v4_10-03-2025_18-57-43
+########################
+GPU not detected. Defaulting to CPU.
+Loading expert policy from... cs285/policies/experts/Hopper.pkl
+obs (1, 11) (1, 11)
+Done restoring expert policy...
+
+
+********** Iteration 0 ************
+
+Collecting data to be used for training...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 3717.749267578125
+Eval_StdReturn : 20.629352569580078
+Eval_MaxReturn : 3758.02587890625
+Eval_MinReturn : 3701.47705078125
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 3717.5129936182307
+Train_StdReturn : 0.3530361779417035
+Train_MaxReturn : 3717.8660297961724
+Train_MinReturn : 3717.159957440289
+Train_AverageEpLen : 1000.0
+Training Loss : -3.0089755058288574
+Train_EnvstepsSoFar : 0
+TimeSinceStart : 9.260225057601929
+Initial_DataCollection_AverageReturn : 3717.5129936182307
+Done logging...
+
+
+n_steps = 15000
+########################
+logging outputs to  /Users/ml/Documents/GitHub/berkeley-deeprl-homework/hw1/cs285/scripts/../../data/q1_bc_hopper_Hopper-v4_10-03-2025_18-57-53
+########################
+GPU not detected. Defaulting to CPU.
+Loading expert policy from... cs285/policies/experts/Hopper.pkl
+obs (1, 11) (1, 11)
+Done restoring expert policy...
+
+
+********** Iteration 0 ************
+
+Collecting data to be used for training...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 3666.635009765625
+Eval_StdReturn : 91.91988372802734
+Eval_MaxReturn : 3713.7080078125
+Eval_MinReturn : 3461.26953125
+Eval_AverageEpLen : 990.8333333333334
+Train_AverageReturn : 3717.5129936182307
+Train_StdReturn : 0.3530361779417035
+Train_MaxReturn : 3717.8660297961724
+Train_MinReturn : 3717.159957440289
+Train_AverageEpLen : 1000.0
+Training Loss : -1.2145943641662598
+Train_EnvstepsSoFar : 0
+TimeSinceStart : 9.752190828323364
+Initial_DataCollection_AverageReturn : 3717.5129936182307
+Done logging...
+
+
+n_steps = 16000
+########################
+logging outputs to  /Users/ml/Documents/GitHub/berkeley-deeprl-homework/hw1/cs285/scripts/../../data/q1_bc_hopper_Hopper-v4_10-03-2025_18-58-03
+########################
+GPU not detected. Defaulting to CPU.
+Loading expert policy from... cs285/policies/experts/Hopper.pkl
+obs (1, 11) (1, 11)
+Done restoring expert policy...
+
+
+********** Iteration 0 ************
+
+Collecting data to be used for training...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 3438.063720703125
+Eval_StdReturn : 625.2877807617188
+Eval_MaxReturn : 3735.002197265625
+Eval_MinReturn : 2040.0328369140625
+Eval_AverageEpLen : 930.3333333333334
+Train_AverageReturn : 3717.5129936182307
+Train_StdReturn : 0.3530361779417035
+Train_MaxReturn : 3717.8660297961724
+Train_MinReturn : 3717.159957440289
+Train_AverageEpLen : 1000.0
+Training Loss : -3.1862635612487793
+Train_EnvstepsSoFar : 0
+TimeSinceStart : 10.544903039932251
+Initial_DataCollection_AverageReturn : 3717.5129936182307
+Done logging...
+
+
+n_steps = 17000
+########################
+logging outputs to  /Users/ml/Documents/GitHub/berkeley-deeprl-homework/hw1/cs285/scripts/../../data/q1_bc_hopper_Hopper-v4_10-03-2025_18-58-14
+########################
+GPU not detected. Defaulting to CPU.
+Loading expert policy from... cs285/policies/experts/Hopper.pkl
+obs (1, 11) (1, 11)
+Done restoring expert policy...
+
+
+********** Iteration 0 ************
+
+Collecting data to be used for training...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 1830.761474609375
+Eval_StdReturn : 759.6353759765625
+Eval_MaxReturn : 3752.30810546875
+Eval_MinReturn : 1055.20947265625
+Eval_AverageEpLen : 503.2
+Train_AverageReturn : 3717.5129936182307
+Train_StdReturn : 0.3530361779417035
+Train_MaxReturn : 3717.8660297961724
+Train_MinReturn : 3717.159957440289
+Train_AverageEpLen : 1000.0
+Training Loss : 0.09166079759597778
+Train_EnvstepsSoFar : 0
+TimeSinceStart : 10.981964826583862
+Initial_DataCollection_AverageReturn : 3717.5129936182307
+Done logging...
+
+
+n_steps = 18000
+########################
+logging outputs to  /Users/ml/Documents/GitHub/berkeley-deeprl-homework/hw1/cs285/scripts/../../data/q1_bc_hopper_Hopper-v4_10-03-2025_18-58-26
+########################
+GPU not detected. Defaulting to CPU.
+Loading expert policy from... cs285/policies/experts/Hopper.pkl
+obs (1, 11) (1, 11)
+Done restoring expert policy...
+
+
+********** Iteration 0 ************
+
+Collecting data to be used for training...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 2364.0537109375
+Eval_StdReturn : 874.1207275390625
+Eval_MaxReturn : 3714.85205078125
+Eval_MinReturn : 1198.7130126953125
+Eval_AverageEpLen : 635.375
+Train_AverageReturn : 3717.5129936182307
+Train_StdReturn : 0.3530361779417035
+Train_MaxReturn : 3717.8660297961724
+Train_MinReturn : 3717.159957440289
+Train_AverageEpLen : 1000.0
+Training Loss : -2.2507569789886475
+Train_EnvstepsSoFar : 0
+TimeSinceStart : 11.757075071334839
+Initial_DataCollection_AverageReturn : 3717.5129936182307
+Done logging...
+
+
+n_steps = 19000
+########################
+logging outputs to  /Users/ml/Documents/GitHub/berkeley-deeprl-homework/hw1/cs285/scripts/../../data/q1_bc_hopper_Hopper-v4_10-03-2025_18-58-38
+########################
+GPU not detected. Defaulting to CPU.
+Loading expert policy from... cs285/policies/experts/Hopper.pkl
+obs (1, 11) (1, 11)
+Done restoring expert policy...
+
+
+********** Iteration 0 ************
+
+Collecting data to be used for training...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 3719.25341796875
+Eval_StdReturn : 2.740926742553711
+Eval_MaxReturn : 3722.814453125
+Eval_MinReturn : 3715.400634765625
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 3717.5129936182307
+Train_StdReturn : 0.3530361779417035
+Train_MaxReturn : 3717.8660297961724
+Train_MinReturn : 3717.159957440289
+Train_AverageEpLen : 1000.0
+Training Loss : -3.146592855453491
+Train_EnvstepsSoFar : 0
+TimeSinceStart : 12.558723211288452
+Initial_DataCollection_AverageReturn : 3717.5129936182307
+Done logging...
+
+
+n_steps = 20000
+########################
+logging outputs to  /Users/ml/Documents/GitHub/berkeley-deeprl-homework/hw1/cs285/scripts/../../data/q1_bc_hopper_Hopper-v4_10-03-2025_18-58-51
+########################
+GPU not detected. Defaulting to CPU.
+Loading expert policy from... cs285/policies/experts/Hopper.pkl
+obs (1, 11) (1, 11)
+Done restoring expert policy...
+
+
+********** Iteration 0 ************
+
+Collecting data to be used for training...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 3124.28759765625
+Eval_StdReturn : 1027.0640869140625
+Eval_MaxReturn : 3730.18017578125
+Eval_MinReturn : 879.6728515625
+Eval_AverageEpLen : 842.1428571428571
+Train_AverageReturn : 3717.5129936182307
+Train_StdReturn : 0.3530361779417035
+Train_MaxReturn : 3717.8660297961724
+Train_MinReturn : 3717.159957440289
+Train_AverageEpLen : 1000.0
+Training Loss : -2.9748101234436035
+Train_EnvstepsSoFar : 0
+TimeSinceStart : 13.060268640518188
+Initial_DataCollection_AverageReturn : 3717.5129936182307
+Done logging...
+
+
+n_steps = 21000
+########################
+logging outputs to  /Users/ml/Documents/GitHub/berkeley-deeprl-homework/hw1/cs285/scripts/../../data/q1_bc_hopper_Hopper-v4_10-03-2025_18-59-05
+########################
+GPU not detected. Defaulting to CPU.
+Loading expert policy from... cs285/policies/experts/Hopper.pkl
+obs (1, 11) (1, 11)
+Done restoring expert policy...
+
+
+********** Iteration 0 ************
+
+Collecting data to be used for training...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 2344.9755859375
+Eval_StdReturn : 940.90185546875
+Eval_MaxReturn : 3806.736328125
+Eval_MinReturn : 1220.4918212890625
+Eval_AverageEpLen : 631.6666666666666
+Train_AverageReturn : 3717.5129936182307
+Train_StdReturn : 0.3530361779417035
+Train_MaxReturn : 3717.8660297961724
+Train_MinReturn : 3717.159957440289
+Train_AverageEpLen : 1000.0
+Training Loss : -2.964240789413452
+Train_EnvstepsSoFar : 0
+TimeSinceStart : 13.840185165405273
+Initial_DataCollection_AverageReturn : 3717.5129936182307
+Done logging...
+
+
+n_steps = 22000
+########################
+logging outputs to  /Users/ml/Documents/GitHub/berkeley-deeprl-homework/hw1/cs285/scripts/../../data/q1_bc_hopper_Hopper-v4_10-03-2025_18-59-19
+########################
+GPU not detected. Defaulting to CPU.
+Loading expert policy from... cs285/policies/experts/Hopper.pkl
+obs (1, 11) (1, 11)
+Done restoring expert policy...
+
+
+********** Iteration 0 ************
+
+Collecting data to be used for training...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 3188.563232421875
+Eval_StdReturn : 829.776123046875
+Eval_MaxReturn : 3720.9306640625
+Eval_MinReturn : 1503.278076171875
+Eval_AverageEpLen : 860.8333333333334
+Train_AverageReturn : 3717.5129936182307
+Train_StdReturn : 0.3530361779417035
+Train_MaxReturn : 3717.8660297961724
+Train_MinReturn : 3717.159957440289
+Train_AverageEpLen : 1000.0
+Training Loss : -3.125157117843628
+Train_EnvstepsSoFar : 0
+TimeSinceStart : 14.234977006912231
+Initial_DataCollection_AverageReturn : 3717.5129936182307
+Done logging...
+
+
+n_steps = 23000
+########################
+logging outputs to  /Users/ml/Documents/GitHub/berkeley-deeprl-homework/hw1/cs285/scripts/../../data/q1_bc_hopper_Hopper-v4_10-03-2025_18-59-34
+########################
+GPU not detected. Defaulting to CPU.
+Loading expert policy from... cs285/policies/experts/Hopper.pkl
+obs (1, 11) (1, 11)
+Done restoring expert policy...
+
+
+********** Iteration 0 ************
+
+Collecting data to be used for training...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 3723.83984375
+Eval_StdReturn : 12.623846054077148
+Eval_MaxReturn : 3746.6435546875
+Eval_MinReturn : 3708.126220703125
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 3717.5129936182307
+Train_StdReturn : 0.3530361779417035
+Train_MaxReturn : 3717.8660297961724
+Train_MinReturn : 3717.159957440289
+Train_AverageEpLen : 1000.0
+Training Loss : -3.1959497928619385
+Train_EnvstepsSoFar : 0
+TimeSinceStart : 14.87191915512085
+Initial_DataCollection_AverageReturn : 3717.5129936182307
+Done logging...
+
+
+n_steps = 24000
+########################
+logging outputs to  /Users/ml/Documents/GitHub/berkeley-deeprl-homework/hw1/cs285/scripts/../../data/q1_bc_hopper_Hopper-v4_10-03-2025_18-59-49
+########################
+GPU not detected. Defaulting to CPU.
+Loading expert policy from... cs285/policies/experts/Hopper.pkl
+obs (1, 11) (1, 11)
+Done restoring expert policy...
+
+
+********** Iteration 0 ************
+
+Collecting data to be used for training...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 3127.7822265625
+Eval_StdReturn : 621.3756103515625
+Eval_MaxReturn : 3722.3408203125
+Eval_MinReturn : 2287.763427734375
+Eval_AverageEpLen : 838.3333333333334
+Train_AverageReturn : 3717.5129936182307
+Train_StdReturn : 0.3530361779417035
+Train_MaxReturn : 3717.8660297961724
+Train_MinReturn : 3717.159957440289
+Train_AverageEpLen : 1000.0
+Training Loss : -3.0897815227508545
+Train_EnvstepsSoFar : 0
+TimeSinceStart : 15.453123092651367
+Initial_DataCollection_AverageReturn : 3717.5129936182307
+Done logging...
+
+
+n_steps = 25000
+########################
+logging outputs to  /Users/ml/Documents/GitHub/berkeley-deeprl-homework/hw1/cs285/scripts/../../data/q1_bc_hopper_Hopper-v4_10-03-2025_19-00-05
+########################
+GPU not detected. Defaulting to CPU.
+Loading expert policy from... cs285/policies/experts/Hopper.pkl
+obs (1, 11) (1, 11)
+Done restoring expert policy...
+
+
+********** Iteration 0 ************
+
+Collecting data to be used for training...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 2441.31884765625
+Eval_StdReturn : 1015.6864013671875
+Eval_MaxReturn : 3778.638671875
+Eval_MinReturn : 1355.026123046875
+Eval_AverageEpLen : 675.25
+Train_AverageReturn : 3717.5129936182307
+Train_StdReturn : 0.3530361779417035
+Train_MaxReturn : 3717.8660297961724
+Train_MinReturn : 3717.159957440289
+Train_AverageEpLen : 1000.0
+Training Loss : -2.9628427028656006
+Train_EnvstepsSoFar : 0
+TimeSinceStart : 16.1806001663208
+Initial_DataCollection_AverageReturn : 3717.5129936182307
+Done logging...
+
+
+n_steps = 26000
+########################
+logging outputs to  /Users/ml/Documents/GitHub/berkeley-deeprl-homework/hw1/cs285/scripts/../../data/q1_bc_hopper_Hopper-v4_10-03-2025_19-00-22
+########################
+GPU not detected. Defaulting to CPU.
+Loading expert policy from... cs285/policies/experts/Hopper.pkl
+obs (1, 11) (1, 11)
+Done restoring expert policy...
+
+
+********** Iteration 0 ************
+
+Collecting data to be used for training...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 3503.3505859375
+Eval_StdReturn : 472.4404602050781
+Eval_MaxReturn : 3717.755859375
+Eval_MinReturn : 2446.94775390625
+Eval_AverageEpLen : 942.0
+Train_AverageReturn : 3717.5129936182307
+Train_StdReturn : 0.3530361779417035
+Train_MaxReturn : 3717.8660297961724
+Train_MinReturn : 3717.159957440289
+Train_AverageEpLen : 1000.0
+Training Loss : -3.163878917694092
+Train_EnvstepsSoFar : 0
+TimeSinceStart : 16.448646068572998
+Initial_DataCollection_AverageReturn : 3717.5129936182307
+Done logging...
+
+
+n_steps = 27000
+########################
+logging outputs to  /Users/ml/Documents/GitHub/berkeley-deeprl-homework/hw1/cs285/scripts/../../data/q1_bc_hopper_Hopper-v4_10-03-2025_19-00-39
+########################
+GPU not detected. Defaulting to CPU.
+Loading expert policy from... cs285/policies/experts/Hopper.pkl
+obs (1, 11) (1, 11)
+Done restoring expert policy...
+
+
+********** Iteration 0 ************
+
+Collecting data to be used for training...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 3125.037841796875
+Eval_StdReturn : 820.9363403320312
+Eval_MaxReturn : 3717.125
+Eval_MinReturn : 1864.988525390625
+Eval_AverageEpLen : 850.5
+Train_AverageReturn : 3717.5129936182307
+Train_StdReturn : 0.3530361779417035
+Train_MaxReturn : 3717.8660297961724
+Train_MinReturn : 3717.159957440289
+Train_AverageEpLen : 1000.0
+Training Loss : -3.0799033641815186
+Train_EnvstepsSoFar : 0
+TimeSinceStart : 17.221505880355835
+Initial_DataCollection_AverageReturn : 3717.5129936182307
+Done logging...
+
+
+n_steps = 28000
+########################
+logging outputs to  /Users/ml/Documents/GitHub/berkeley-deeprl-homework/hw1/cs285/scripts/../../data/q1_bc_hopper_Hopper-v4_10-03-2025_19-00-57
+########################
+GPU not detected. Defaulting to CPU.
+Loading expert policy from... cs285/policies/experts/Hopper.pkl
+obs (1, 11) (1, 11)
+Done restoring expert policy...
+
+
+********** Iteration 0 ************
+
+Collecting data to be used for training...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 3254.313232421875
+Eval_StdReturn : 850.3140258789062
+Eval_MaxReturn : 3780.7060546875
+Eval_MinReturn : 1412.619384765625
+Eval_AverageEpLen : 870.8333333333334
+Train_AverageReturn : 3717.5129936182307
+Train_StdReturn : 0.3530361779417035
+Train_MaxReturn : 3717.8660297961724
+Train_MinReturn : 3717.159957440289
+Train_AverageEpLen : 1000.0
+Training Loss : -2.884075403213501
+Train_EnvstepsSoFar : 0
+TimeSinceStart : 17.822712898254395
+Initial_DataCollection_AverageReturn : 3717.5129936182307
+Done logging...
+
+
+n_steps = 29000
+########################
+logging outputs to  /Users/ml/Documents/GitHub/berkeley-deeprl-homework/hw1/cs285/scripts/../../data/q1_bc_hopper_Hopper-v4_10-03-2025_19-01-15
+########################
+GPU not detected. Defaulting to CPU.
+Loading expert policy from... cs285/policies/experts/Hopper.pkl
+obs (1, 11) (1, 11)
+Done restoring expert policy...
+
+
+********** Iteration 0 ************
+
+Collecting data to be used for training...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 3108.930419921875
+Eval_StdReturn : 856.8395385742188
+Eval_MaxReturn : 3724.76806640625
+Eval_MinReturn : 1780.52099609375
+Eval_AverageEpLen : 838.6666666666666
+Train_AverageReturn : 3717.5129936182307
+Train_StdReturn : 0.3530361779417035
+Train_MaxReturn : 3717.8660297961724
+Train_MinReturn : 3717.159957440289
+Train_AverageEpLen : 1000.0
+Training Loss : -3.279499053955078
+Train_EnvstepsSoFar : 0
+TimeSinceStart : 18.73207712173462
+Initial_DataCollection_AverageReturn : 3717.5129936182307
+Done logging...
+
+
+n_steps = 30000
+########################
+logging outputs to  /Users/ml/Documents/GitHub/berkeley-deeprl-homework/hw1/cs285/scripts/../../data/q1_bc_hopper_Hopper-v4_10-03-2025_19-01-34
+########################
+GPU not detected. Defaulting to CPU.
+Loading expert policy from... cs285/policies/experts/Hopper.pkl
+obs (1, 11) (1, 11)
+Done restoring expert policy...
+
+
+********** Iteration 0 ************
+
+Collecting data to be used for training...
+
+Training agent using sampled data from replay buffer...
+
+Beginning logging procedure...
+
+Collecting data for eval...
+Eval_AverageReturn : 3465.441650390625
+Eval_StdReturn : 604.0672607421875
+Eval_MaxReturn : 3819.620849609375
+Eval_MinReturn : 2117.53076171875
+Eval_AverageEpLen : 929.3333333333334
+Train_AverageReturn : 3717.5129936182307
+Train_StdReturn : 0.3530361779417035
+Train_MaxReturn : 3717.8660297961724
+Train_MinReturn : 3717.159957440289
+Train_AverageEpLen : 1000.0
+Training Loss : -3.205519914627075
+Train_EnvstepsSoFar : 0
+TimeSinceStart : 19.191301822662354
+Initial_DataCollection_AverageReturn : 3717.5129936182307
+Done logging...
+
+
