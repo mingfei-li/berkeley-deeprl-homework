@@ -98,7 +98,7 @@ class MLPPolicyPG(MLPPolicy):
         advantages = ptu.from_numpy(advantages)
 
         m = self.forward(obs)
-        loss = torch.mean(m.log_prob(actions) * advantages)
+        loss = -torch.mean(m.log_prob(actions) * advantages)
 
         self.optimizer.zero_grad()
         loss.backward()

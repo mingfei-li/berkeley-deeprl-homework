@@ -15,6 +15,7 @@
 \usepackage{listings}
 \usepackage{tikz}
 \usepackage{quiver}
+\usepackage{graphicx}
 
 \newcommand{\xb}{\mathbf{x}}
 \newcommand{\yb}{\mathbf{y}}
@@ -51,12 +52,12 @@ backgroundcolor = \color{light-yellow}
 }
 
 \begin{centering}
-    {\Large [SOLUTION TEMPLATE] Assignment 2: Policy Gradients} \\
+    {\Large Assignment 2: Policy Gradients} \\
     \vspace{.25cm}
     \textbf{Due September 25, 11:59 pm} \\
 \end{centering}
 
-\setcounter{section}{3}
+\setcounter{section}{2}
 \section{Policy Gradients}
 \begin{itemize}
 \item Create two graphs:
@@ -65,13 +66,40 @@ backgroundcolor = \color{light-yellow}
 \item In the second graph, compare the learning curves for the experiments prefixed with \verb|cartpole_lb|. (The large batch experiments.)
 \end{itemize}
 \textbf{For all plots in this assignment, the $x$-axis should be number of environment steps, logged as} \verb|Train_EnvstepsSoFar| \textbf{(\textit{not} number of policy gradient iterations).}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.5\textwidth]{q3_cartpole_curve.png}
+    \caption{Learning Curve for small batch cartpole experiments}
+    \label{fig:q3_cartpole_curve}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.5\textwidth]{q3_cartpole_lb_curve.png}
+    \caption{Learning Curve for small batch cartpole experiments}
+    \label{fig:q3_cartpole_lb_curve}
+\end{figure}
+
 \item Answer the following questions briefly: 
 \begin{itemize}
 \item Which value estimator has better performance without advantage normalization: the trajectory-centric one, or the one using reward-to-go?
+\begin{itemize}
+    \item The one using reward-to-go
+\end{itemize}
 \item Did advantage normalization help?
+\begin{itemize}
+    \item Yes, all variants (trajectory centric v.s. reward-to-go, small v.s. large batch) benefited when advantage normalization is used.
+\end{itemize}
 \item Did the batch size make an impact?
+\begin{itemize}
+    \item Yes. Specifically, it accelerated convergence for all variants (trajectory centric v.s. reward-to-go, advantage normaliztion v.s. not) as evidenced by longer total training steps.
+\end{itemize}
 \end{itemize}
 \item Provide the exact command line configurations (or \texttt{\#@params} settings in Colab) you used to run your experiments, including any parameters changed from their defaults.
+\begin{itemize}
+    \item No parameters were changed. The default command line configuration from the homework specs were used.
+\end{itemize}
 \end{itemize}
 
 \newpage\section{Neural Network Baseline}

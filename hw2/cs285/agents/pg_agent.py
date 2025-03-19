@@ -118,7 +118,7 @@ class PGAgent(nn.Module):
         Operates on flat 1D NumPy arrays.
         """
         if self.critic is None:
-            advantages = np.zeros_like(q_values)
+            advantages = q_values
         else:
             # TODO: run the critic and use it as a baseline
             values = None
@@ -146,7 +146,9 @@ class PGAgent(nn.Module):
 
         # TODO: normalize the advantages to have a mean of zero and a standard deviation of one within the batch
         if self.normalize_advantages:
-            pass
+            mean = np.mean(advantages)
+            std = np.std(advantages) + 1e-9
+            advantages = (advantages - mean) / std
 
         return advantages
 
@@ -177,5 +179,5 @@ class PGAgent(nn.Module):
             if t == T-1:
                 rtg[t] = rewards[t]
             else:
-                rtg[t] = self.gamma * rtg[t + 1] + reward[t]
-        return np.array(rtg)
+                rtg[t] = self.gamma*rtg[t+1] + rewards[t]
+        return np.array(rtg) # * (self.gamma**np.arange(T))

@@ -107,7 +107,7 @@ def run_training_loop(args):
             # perform the logging
             for key, value in logs.items():
                 print("{} : {}".format(key, value))
-                logger.log_scalar(value, key, itr)
+                logger.log_scalar(value, key, total_envsteps)
             print("Done logging...\n\n")
 
             logger.flush()
