@@ -58,9 +58,9 @@ class MLPPolicy(nn.Module):
     @torch.no_grad()
     def get_action(self, obs: np.ndarray) -> np.ndarray:
         """Takes a single observation (as a numpy array) and returns a single action (as a numpy array)."""
-        obs = ptu.from_numpy(obs)
+        obs = ptu.from_numpy(obs).unsqueeze(0)
         m = self.forward(obs)
-        action = ptu.to_numpy(m.sample())
+        action = ptu.to_numpy(m.sample()[0])
         return action
 
     def forward(self, obs: torch.FloatTensor):
@@ -74,7 +74,7 @@ class MLPPolicy(nn.Module):
             m = distributions.Categorical(logits=logits)
         else:
             means = self.mean_net(obs)
-            stds = torch.exp(self.logstd)
+            stds = torch.exp(self.logstd).view(1, -1)
             m = distributions.Normal(means, stds)
         return m
 
@@ -98,7 +98,7 @@ class MLPPolicyPG(MLPPolicy):
         advantages = ptu.from_numpy(advantages)
 
         m = self.forward(obs)
-        loss = -torch.mean(m.log_prob(actions) * advantages)
+        loss = -torch.mean(m.log_prob(actions).sum(dim=-1) * advantages)
 
         self.optimizer.zero_grad()
         loss.backward()
