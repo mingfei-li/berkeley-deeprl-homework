@@ -122,10 +122,8 @@ class PGAgent(nn.Module):
             assert values.shape == q_values.shape
 
             if self.gae_lambda is None:
-                # TODO: if using a baseline, but not GAE, what are the advantages?
                 advantages = q_values - values
             else:
-                # TODO: implement GAE
                 batch_size = obs.shape[0]
 
                 # HINT: append a dummy T+1 value for simpler recursive calculation
@@ -133,10 +131,16 @@ class PGAgent(nn.Module):
                 advantages = np.zeros(batch_size + 1)
 
                 for i in reversed(range(batch_size)):
-                    # TODO: recursively compute advantage estimates starting from timestep T.
+                    # Recursively compute advantage estimates starting from timestep T.
                     # HINT: use terminals to handle edge cases. terminals[i] is 1 if the state is the last in its
                     # trajectory, and 0 otherwise.
-                    pass
+                    if terminals[i]:
+                        # print(f'{i}:terminals[i]={terminals[i]}, rewards[i]={rewards[i]}, values[i]={values[i]}')
+                        advantages[i] = rewards[i] - values[i]
+                    else:
+                        delta = rewards[i] + self.gamma*values[i+1] - values[i]
+                        advantages[i] = self.gae_lambda*self.gamma*advantages[i+1] + delta
+                        # print(f'{i}:delta={delta}, rewards[i]={rewards[i]}, values[i+1]={values[i+1]}, values[i]={values[i]}, self.gamma={self.gamma}, self.gae_lambda={self.gae_lambda}, advantages[i]={advantages[i]}, advantages[i+1]={advantages[i+1]}')
 
                 # remove dummy advantage
                 advantages = advantages[:-1]
@@ -171,10 +175,10 @@ class PGAgent(nn.Module):
         """
 
         T = len(rewards)
-        rtg = [None] * T
+        rtg = np.zeros(T)
         for t in reversed(range(T)):
             if t == T-1:
                 rtg[t] = rewards[t]
             else:
                 rtg[t] = self.gamma*rtg[t+1] + rewards[t]
-        return np.array(rtg) # * (self.gamma**np.arange(T))
+        return rtg
