@@ -118,7 +118,8 @@ class PGAgent(nn.Module):
         if self.critic is None:
             advantages = q_values
         else:
-            values = ptu.to_numpy(self.critic(ptu.from_numpy(obs)).view(-1))
+            with torch.no_grad():
+                values = ptu.to_numpy(self.critic(ptu.from_numpy(obs)).view(-1))
             assert values.shape == q_values.shape
 
             if self.gae_lambda is None:
@@ -134,13 +135,11 @@ class PGAgent(nn.Module):
                     # Recursively compute advantage estimates starting from timestep T.
                     # HINT: use terminals to handle edge cases. terminals[i] is 1 if the state is the last in its
                     # trajectory, and 0 otherwise.
-                    if terminals[i]:
-                        # print(f'{i}:terminals[i]={terminals[i]}, rewards[i]={rewards[i]}, values[i]={values[i]}')
+                    if terminals[i] == 1:
                         advantages[i] = rewards[i] - values[i]
                     else:
                         delta = rewards[i] + self.gamma*values[i+1] - values[i]
                         advantages[i] = self.gae_lambda*self.gamma*advantages[i+1] + delta
-                        # print(f'{i}:delta={delta}, rewards[i]={rewards[i]}, values[i+1]={values[i+1]}, values[i]={values[i]}, self.gamma={self.gamma}, self.gae_lambda={self.gae_lambda}, advantages[i]={advantages[i]}, advantages[i+1]={advantages[i+1]}')
 
                 # remove dummy advantage
                 advantages = advantages[:-1]
@@ -175,10 +174,7 @@ class PGAgent(nn.Module):
         """
 
         T = len(rewards)
-        rtg = np.zeros(T)
+        rtg = np.zeros(T+1)
         for t in reversed(range(T)):
-            if t == T-1:
-                rtg[t] = rewards[t]
-            else:
-                rtg[t] = self.gamma*rtg[t+1] + rewards[t]
-        return rtg
+            rtg[t] = self.gamma*rtg[t+1] + rewards[t]
+        return rtg[:-1]

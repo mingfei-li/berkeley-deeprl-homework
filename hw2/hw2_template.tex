@@ -121,7 +121,7 @@ backgroundcolor = \color{light-yellow}
     \item Run another experiment with a decreased number of baseline gradient steps (\verb|-bgs|) and/or baseline learning rate (\verb|-blr|). How does this affect (a) the baseline learning curve and (b) the performance of the policy?
 \begin{enumerate}[label=(\alph*)]
     \item The baseline loss shot up initially and stabilized at about 2.5x of original setting.
-    \item Performance was even worse than the experiment without baseline.
+    \item Performance was even worse than the experiment without baseline initially, and eventually they roughly match.
     \item Experiment setup: lr=1e-3 (v.s. original 1e-2) and bgs=2 (v.s. original 5)
 \end{enumerate}
     \item \textbf{Optional:} Add \verb|-na| back to see how much it improves things. Also, set \verb|video_log_freq 10|, then open TensorBoard and go to the ``Images'' tab to see some videos of your HalfCheetah walking along!

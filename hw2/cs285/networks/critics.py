@@ -41,8 +41,8 @@ class ValueCritic(nn.Module):
         obs = ptu.from_numpy(obs)
         q_values = ptu.from_numpy(q_values)
 
-        y = self.network(obs)
-        loss = F.mse_loss(q_values.view(-1), y.view(-1))
+        preds = self.network(obs)
+        loss = F.mse_loss(q_values.view(-1), preds.view(-1))
 
         self.optimizer.zero_grad()
         loss.backward()
