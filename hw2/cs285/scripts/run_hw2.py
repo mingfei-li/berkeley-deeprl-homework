@@ -5,6 +5,7 @@ from cs285.agents.pg_agent import PGAgent
 
 import os
 import time
+import csv
 
 import gym
 import numpy as np
@@ -20,6 +21,9 @@ MAX_NVIDEO = 2
 
 def run_training_loop(args):
     logger = Logger(args.logdir)
+    if args.log_csv:
+        csv_file = open('q6_metrics.csv', 'a', newline='')
+        csv_writer = csv.writer(csv_file)
 
     # set random seeds
     np.random.seed(args.seed)
@@ -104,6 +108,10 @@ def run_training_loop(args):
                     "Train_AverageReturn"
                 ]
 
+            if args.log_csv:
+                csv_writer.writerow([args.exp_name, args.seed, total_envsteps, logs["Eval_AverageReturn"]])
+                csv_file.flush()
+
             # perform the logging
             for key, value in logs.items():
                 print("{} : {}".format(key, value))
@@ -163,6 +171,7 @@ def main():
     parser.add_argument("--scalar_log_freq", type=int, default=1)
 
     parser.add_argument("--action_noise_std", type=float, default=0)
+    parser.add_argument("--log_csv", action="store_true")
 
     args = parser.parse_args()
 

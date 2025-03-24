@@ -70,14 +70,14 @@ backgroundcolor = \color{light-yellow}
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.5\textwidth]{q3_cartpole_curve.png}
-    \caption{Learning Curve for small batch cartpole experiments}
+    \caption{Learning curve for small batch cartpole experiments}
     \label{fig:q3_cartpole_curve}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.5\textwidth]{q3_cartpole_lb_curve.png}
-    \caption{Learning Curve for small batch cartpole experiments}
+    \caption{Learning curve for large batch cartpole experiments}
     \label{fig:q3_cartpole_lb_curve}
 \end{figure}
 
@@ -108,14 +108,14 @@ backgroundcolor = \color{light-yellow}
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.5\textwidth]{q4_baseline_loss.png}
-    \caption{Learning Curve for small batch cartpole experiments}
+    \caption{Learning curves for baseline losses}
     \label{fig:q4_baseline_loss}
 \end{figure}
     \item Plot a learning curve for the eval return. You should expect to achieve an average return over 300 for the baselined version.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.5\textwidth]{q4_avg_eval_return.png}
-    \caption{Learning Curve for small batch cartpole experiments}
+    \caption{Learning curves for average eval returns}
     \label{fig:q4_avg_eval_return}
 \end{figure}
     \item Run another experiment with a decreased number of baseline gradient steps (\verb|-bgs|) and/or baseline learning rate (\verb|-blr|). How does this affect (a) the baseline learning curve and (b) the performance of the policy?
@@ -138,7 +138,7 @@ backgroundcolor = \color{light-yellow}
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.5\textwidth]{q5_avg_eval_return.png}
-    \caption{Learning Curve for small batch cartpole experiments}
+    \caption{Learning curves for various $\lambda$ values}
     \label{fig:q5_avg_eval_return}
 \end{figure}
     \item Consider the parameter $\lambda$. What does $\lambda = 0$ correspond to? What about $\lambda = 1$? Relate this to the task performance in \verb|LunarLander-v2| in one or two sentences.
@@ -152,15 +152,21 @@ backgroundcolor = \color{light-yellow}
 \begin{enumerate}
     \item Provide a set of hyperparameters that achieve high return on \verb|InvertedPendulum-v4| in as few environment steps as possible.
     \begin{verbatim}
-for seed in $(seq 1 5); do
-    python cs285/scripts/run_hw2.py --env_name InvertedPendulum-v4 -n 100 \
-        --exp_name pendulum_discount_0.95_na_bs_100_gae_0.95_l_3_blr_1e-4_bgs_1000_s$seed \
-        --discount 0.95 -rtg --use_baseline -na --gae_lambda 0.95 \
-        --batch_size 100 -l 3 -blr 1e-4 -bgs 1000 \
+    for seed in $(seq 1 5); do
+        python cs285/scripts/run_hw2.py --env_name InvertedPendulum-v4 -n 100 \
+        --exp_name pendulum_best \
+        --discount 0.95 -rtg --use_baseline -na --gae_lambda 0.98 \
+        --batch_size 200 -l 3 -blr 1e-4 -bgs 1000 \
         --seed $seed
-done
+    done
     \end{verbatim}
     \item Show learning curves for the average returns with your hyperparameters and with the default settings, with environment steps on the $x$-axis. Returns should be averaged over 5 seeds.
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.5\textwidth]{q6_curves.png}
+        \caption{Learning curves for the best performing hyperparameters v.s. default}
+        \label{fig:q6_curves}
+    \end{figure}
 \end{enumerate}
 
 \newpage\section{(Extra Credit) Humanoid}
