@@ -151,6 +151,15 @@ backgroundcolor = \color{light-yellow}
 \newpage\section{Hyperparameter Tuning}
 \begin{enumerate}
     \item Provide a set of hyperparameters that achieve high return on \verb|InvertedPendulum-v4| in as few environment steps as possible.
+    \begin{verbatim}
+for seed in $(seq 1 5); do
+    python cs285/scripts/run_hw2.py --env_name InvertedPendulum-v4 -n 100 \
+        --exp_name pendulum_discount_0.95_na_bs_100_gae_0.95_l_3_blr_1e-4_bgs_1000_s$seed \
+        --discount 0.95 -rtg --use_baseline -na --gae_lambda 0.95 \
+        --batch_size 100 -l 3 -blr 1e-4 -bgs 1000 \
+        --seed $seed
+done
+    \end{verbatim}
     \item Show learning curves for the average returns with your hyperparameters and with the default settings, with environment steps on the $x$-axis. Returns should be averaged over 5 seeds.
 \end{enumerate}
 
