@@ -173,6 +173,12 @@ backgroundcolor = \color{light-yellow}
 \begin{enumerate}
     \item Plot a learning curve for the Humanoid-v4 environment. You should expect to achieve an average return of at least 600 by the end of training. Discuss what changes, if any, you made to complete this problem (for example: optimizations to the original code, hyperparameter changes, algorithmic changes).
 \end{enumerate}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.5\textwidth]{q7_avg_eval_return.png}
+    \caption{Learning curves for Humanoid}
+    \label{fig:q7_avg_eval_return}
+\end{figure}
 
 \newpage\section{Analysis}
 \label{sec:analysis}
@@ -202,11 +208,35 @@ Parametrize the policy as stationary (not dependent on time) with a single param
     \textbf{Hint}: to compute $\sum_{k=1}^\infty k\alpha^{k-1}$, you can write:
     \[\sum_{k=1}^\infty k\alpha^{k-1} = \sum_{k=1}^\infty \frac{d}{d\alpha}\alpha^k = \frac{d}{d\alpha}\sum_{k=1}^\infty\alpha^k\]
 
-\textbf{Solution:}
+\textbf{Solution:} For any $k >= 0$, let $\tau_k$ denote the trajectory where the agent takes action $a_1$ $k$ times before taking an action $a_2$ that terminates the trajectory. Note that $\tau_k$ has the following properties.
+\begin{enumerate}
+    \item $p_\theta(\tau_k) = \theta^k(1-\theta)$
+    \item $r(\tau_k) = k$
+    \item $\nabla_\theta \log p_\theta(\tau_k) = \sum_{t=1}^k \nabla_\theta \log \pi_\theta(a_1 | s_1) + \nabla_\theta \log \pi_\theta(a_2 | s_1) = \frac{k}{\theta} - \frac{1}{1 - \theta} = \frac{k - (k+1)\theta}{\theta(1-\theta)}$
+\end{enumerate}
+
+Therefore, we can derive the policy gradient as follows.
+\begin{align}
+\nabla_\theta J(\theta) &= \sum_{k=0}^{\infty} p_\theta(\tau_k) \cdot \nabla_\theta \log p_\theta(\tau_k) \cdot r(\tau_k) \\
+&= \sum_{k=0}^{\infty} \theta^k(1-\theta) \cdot \frac{k - (k+1)\theta}{\theta(1-\theta)} \cdot k \\
+&= \sum_{k=0}^{\infty} k^2\theta^{k-1} - k(k+1)\theta^k \\
+&= \sum_{k=0}^{\infty} k^2\theta^{k-1} - (k+1)^2\theta^k + (k+1)\theta^k \\
+&= \sum_{k=0}^{\infty} k^2\theta^{k-1} - \sum_{k=0}^{\infty}(k+1)^2\theta^k + \sum_{k=0}^{\infty}(k+1)\theta^k \\
+&= \sum_{k=1}^{\infty} k^2\theta^{k-1} - \sum_{k=1}^{\infty} k^2\theta^{k-1} + \sum_{k=1}^{\infty}k\theta^{k-1} \\
+&= \frac{d}{d\theta}\sum_{k=1}^{\infty}\theta^k \\
+&= \frac{d}{d\theta}\frac{\theta}{1-\theta} \\
+&= \frac{1}{(1-\theta)^2}
+\end{align}
 
     \item \label{exact_gradient} Compute the expected return of the policy $\E_{\tau \sim \pi_\theta} R(\tau)$ directly. Compute the gradient of this expression with respect to $\theta$ and verify that this matches the policy gradient.
 
 \textbf{Solution:}
+Note that under the policy $\pi_\theta$, the reward $r(\tau_k)$ follows a geometric distribution with success probability $1 - \theta$, so 
+
+\[J(\theta) = \mathbb{E}[r(\tau_k)] = \frac{\theta}{1 - \theta}\]
+
+Therefore, we have
+\[\nabla_\theta J(\theta) = \frac{d}{d\theta} \frac{\theta}{1 - \theta} = \frac{1}{(1-\theta)^2} \]
 
 \end{enumerate}
 \newpage
