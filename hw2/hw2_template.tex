@@ -212,20 +212,21 @@ Parametrize the policy as stationary (not dependent on time) with a single param
 \begin{enumerate}
     \item $p_\theta(\tau_k) = \theta^k(1-\theta)$
     \item $r(\tau_k) = k$
-    \item $\nabla_\theta \log p_\theta(\tau_k) = \sum_{t=1}^k \nabla_\theta \log \pi_\theta(a_1 | s_1) + \nabla_\theta \log \pi_\theta(a_2 | s_1) = \frac{k}{\theta} - \frac{1}{1 - \theta} = \frac{k - (k+1)\theta}{\theta(1-\theta)}$
+    \item $\nabla_\theta \log p_\theta(\tau_k) = \sum_{t=1}^k \nabla_\theta \log \pi_\theta(a_1 | s_1) + \nabla_\theta \log \pi_\theta(a_2 | s_1) = \frac{k}{\theta} - \frac{1}{1 - \theta}$
 \end{enumerate}
 
 Therefore, we can derive the policy gradient as follows.
+
 \begin{align}
-\nabla_\theta J(\theta) &= \sum_{k=0}^{\infty} p_\theta(\tau_k) \cdot \nabla_\theta \log p_\theta(\tau_k) \cdot r(\tau_k) \\
+\nabla_\theta J(\theta) &= \mathbb{E}_{\tau \sim p_\theta(\tau)}[\nabla_\theta \log p_\theta(\tau) \cdot r(\tau)] \\ 
+&= \sum_{k=0}^{\infty} p_\theta(\tau_k) \cdot \nabla_\theta \log p_\theta(\tau_k) \cdot r(\tau_k) \\
+&= \sum_{k=0}^{\infty} \theta^k(1-\theta) \cdot (\frac{k}{\theta} - \frac{1}{1 - \theta}) \cdot k \\
 &= \sum_{k=0}^{\infty} \theta^k(1-\theta) \cdot \frac{k - (k+1)\theta}{\theta(1-\theta)} \cdot k \\
 &= \sum_{k=0}^{\infty} k^2\theta^{k-1} - k(k+1)\theta^k \\
 &= \sum_{k=0}^{\infty} k^2\theta^{k-1} - (k+1)^2\theta^k + (k+1)\theta^k \\
 &= \sum_{k=0}^{\infty} k^2\theta^{k-1} - \sum_{k=0}^{\infty}(k+1)^2\theta^k + \sum_{k=0}^{\infty}(k+1)\theta^k \\
 &= \sum_{k=1}^{\infty} k^2\theta^{k-1} - \sum_{k=1}^{\infty} k^2\theta^{k-1} + \sum_{k=1}^{\infty}k\theta^{k-1} \\
-&= \frac{d}{d\theta}\sum_{k=1}^{\infty}\theta^k \\
-&= \frac{d}{d\theta}\frac{\theta}{1-\theta} \\
-&= \frac{1}{(1-\theta)^2}
+&= \frac{d}{d\theta}\sum_{k=1}^{\infty}\theta^k = \frac{d}{d\theta}\frac{\theta}{1-\theta} = \frac{1}{(1-\theta)^2}
 \end{align}
 
     \item \label{exact_gradient} Compute the expected return of the policy $\E_{\tau \sim \pi_\theta} R(\tau)$ directly. Compute the gradient of this expression with respect to $\theta$ and verify that this matches the policy gradient.
@@ -246,16 +247,89 @@ Therefore, we have
 
 \textbf{Solution:}
 
+Given 
+\[\text{VAR}_{\tau \sim p_\theta(\tau)}[\nabla_\theta \log p_\theta(\tau) r(\tau)] = \mathbb{E}_{\tau \sim p_\theta(\tau)}[(\nabla_\theta \log p_\theta(\tau) r(\tau))^2] - (\mathbb{E}_{\tau \sim p_\theta(\tau)}[\nabla_\theta \log p_\theta(\tau) r(\tau)])^2\]
+
+and we know that 
+
+\[(\mathbb{E}_{\tau \sim p_\theta(\tau)}[\nabla_\theta \log p_\theta(\tau) r(\tau)])^2 = (\frac{1}{(1 - \theta)^2})^2 = \frac{1}{(1 - \theta)^4}\]
+
+we focus on computing $\mathbb{E}_{\tau \sim p_\theta(\tau)}[(\nabla_\theta \log p_\theta(\tau) r(\tau))^2]$ first.
+
+\begin{align}
+&\mathbb{E}_{\tau \sim p_\theta(\tau)}[(\nabla_\theta \log p_\theta(\tau) r(\tau))^2] \\
+=& \sum_{k=0}^{\infty} p_\theta(\tau_k)(\nabla_\theta \log p_\theta(\tau) r(\tau))^2 \\
+=& \sum_{k=0}^{\infty}\theta^k(1-\theta)((\frac{k}{\theta} - \frac{1}{1-\theta})k)^2 \\
+=& \sum_{k=0}^{\infty}\theta^k(1-\theta)(\frac{k^4}{\theta^2} - \frac{2k^3}{\theta(1-\theta)} + \frac{k^2}{(1-\theta)^2}) \\
+=& \frac{1-\theta}{\theta^2}\sum_{k=0}^{\infty}k^4\theta^k - \frac{2}{\theta}\sum_{k=0}^{\infty}k^3\theta^k + \frac{1}{1-\theta}\sum_{k=0}^{\infty}k^2\theta^k \\
+=& \frac{1-\theta}{\theta^2}\cdot\frac{\theta(1 + 11\theta + 11\theta^2 + \theta^3)}{(1-\theta)^5} - \frac{2}{\theta}\cdot\frac{\theta(1 + 4\theta + \theta^2)}{(1-\theta)^4} + \frac{1}{1-\theta}\cdot\frac{\theta(1+\theta)}{(1-\theta)^3} \\
+=& \frac{1 + 11\theta + 11\theta^2 + \theta^3}{\theta(1-\theta)^4} - \frac{2\theta(1 + 4\theta + \theta^2)}{\theta(1-\theta)^4} + \frac{\theta^2(1+\theta)}{\theta(1-\theta)^4} \\
+=& \frac{4\theta^2 + 9\theta +1}{\theta(1-\theta)^4}
+\end{align}
+
+Plugging it back, we get 
+\[
+\text{VAR}_{\tau \sim p_\theta(\tau)}[\nabla_\theta \log p_\theta(\tau) r(\tau)] = \frac{4\theta^2 + 9\theta +1}{\theta(1-\theta)^4} - \frac{1}{(1 - \theta)^4} = \frac{4\theta^2 + 8\theta +1}{\theta(1-\theta)^4}
+\]
+
 \newpage
 \question[sec:analysis3] Apply return-to-go as an advantage estimator.
 \begin{enumerate}
     \item Write the modified policy gradient and confirm that it is unbiased.
 
 \textbf{Solution:}
+\begin{align}
+\nabla_{\theta}J(\theta) &= \mathbb{E}_{\tau \sim p_\theta}[\sum_{t=1}^{T}\nabla_\theta \log \pi_\theta(a_t | s_t)(\sum_{t'=t}^{T}r(s_t, a_t))] \\
+&= \sum_{k=0}^{\infty}p_\theta(\tau_k)(\sum_{t=1}^k\nabla_\theta\log\pi_\theta(a_t|s_t)(\sum_{t'=t}^{T}r(s_t, a_t)) + \nabla_\theta\log\pi_\theta(a_{k+1} | s_{k+1})r(s_{k+1}, a_{k+1})) \\
+&= \sum_{k=0}^{\infty}\theta^k(1-\theta)\sum_{t=1}^{k}\frac{1}{\theta}(k - t + 1) \\
+&= \sum_{k=0}^{\infty}\theta^{k-1}(1-\theta)\frac{k(k+1)}{2} \\
+&= \frac{1}{2\theta}(\sum_{k=0}^{\infty}k^2\theta^k(1-\theta) + \sum_{k=0}^{\infty}k\theta^k(1-\theta))
+\end{align}
+
+Note that the terms in the parentheses are the second and first moments of a geometric distribution, so we have
+
+\[
+\sum_{k=0}^{\infty}k^2\theta^k(1-\theta) = \frac{\theta + \theta^2}{(1-\theta)^2}
+\]
+
+and
+\[
+\sum_{k=0}^{\infty}k\theta^k(1-\theta) = \frac{\theta}{1-\theta}
+\]
+
+Plugging them back in, we get
+\begin{align}
+\nabla_{\theta}J(\theta) &= \frac{1}{2\theta}(\sum_{k=0}^{\infty}k^2\theta^k(1-\theta) + \sum_{k=0}^{\infty}k\theta^k(1-\theta)) \\
+&= \frac{1}{2\theta}(\frac{\theta + \theta^2}{(1-\theta)^2} + \frac{\theta}{1-\theta}) \\
+&= \frac{1}{(1-\theta)^2}
+\end{align}
 
     \item Compute the variance of the return-to-go policy gradient and plot it on $[0, 1]$ alongside the variance of the original estimator.
 
 \textbf{Solution:}
+
+\begin{align}
+&\mathbb{E}_{\tau \sim p_\theta}[(\sum_{t=1}^{T}\nabla_\theta \log \pi_\theta(a_t | s_t)(\sum_{t'=t}^{T}r(s_t, a_t)))^2] \\
+=& \sum_{k=0}^{\infty}\theta^k(1-\theta)(\sum_{t=1}^{k}\frac{1}{\theta}(k - t + 1))^2 \\
+=& \sum_{k=0}^{\infty}\theta^{k-2}(1-\theta)(\sum_{t=1}^{k}k - t + 1)^2 \\
+=& \sum_{k=0}^{\infty}\theta^{k-2}(1-\theta)\frac{k^2(k+1)^2}{4} \\
+=& \sum_{k=0}^{\infty}\theta^{k-2}(1-\theta)\frac{k^4+2k^3+k^2}{4} \\
+=& \frac{1-\theta}{4\theta^2}(\sum_{k=0}^{\infty}k^4\theta^k + 2\sum_{k=0}^{\infty}k^3\theta^k + \sum_{k=0}^{\infty}k^4\theta^k) \\
+=& \frac{1-\theta}{4\theta^2}(\frac{\theta(1 + 11\theta + 11\theta^2 + \theta^3)}{(1-\theta)^5} + \frac{2\theta(1 + 4\theta + \theta^2)}{(1-\theta)^4} + \frac{\theta(1+\theta)}{(1-\theta)^3}) \\
+=& \frac{\theta^2 + 4\theta + 1}{\theta(1-\theta)^4}
+\end{align}
+
+Therefore, we have
+\[
+\text{VAR}_{\tau \sim p_\theta(\tau)}[\sum_{t=1}^{T}\nabla_\theta \log \pi_\theta(a_t | s_t)(\sum_{t'=t}^{T}r(s_t, a_t))] = \frac{\theta^2 + 4\theta + 1}{\theta(1-\theta)^4} - \frac{1}{(1-\theta)^4} = \frac{\theta^2 + 3\theta + 1}{\theta(1-\theta)^4}
+\]
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.5\textwidth]{q8_varience_curves.png}
+    \caption{Learning curve for small batch cartpole experiments}
+    \label{fig:q8_variance_curves}
+\end{figure}
 
 \end{enumerate}
 \newpage
@@ -280,7 +354,38 @@ Using the same policy parametrization as above, consider off-policy policy gradi
 \begin{enumerate}
     \item Write the policy gradient with importance sampling.
 
+\textbf{Solution:}
+Let $\tau_H$ be the trajectory that ends at $s_H$. We know that $p_\theta(\tau_H) = \theta^{H-1}$, $r(\tau_H)=1$ and $r(\tau) = 0$ for any $\tau \neq \tau_H$.
+
+Assume that we have a sample of trajectories $\tau^{(1)}, \tau^{(2)}, ..., \tau^{(n)}$ drawn from $\pi_{\theta'}$, and let $n_H$ be the number of times $\tau_H$ appear in the sample. The sample policy gradient with importance sampling is the following.
+
+\begin{align}
+\nabla_\theta J(\theta) &\approx \frac{1}{n} \sum_{i=1}^{n} \frac{p_\theta(\tau^{(i)})}{p_{\theta'}(\tau^{(i)})} \nabla_\theta \log p_\theta(\tau^{(i)}) r(\tau^{(i)}) \\
+&= \frac{n_H}{n}(\frac{\theta}{\theta'})^{H-1}(H-1)\frac{1}{\theta} \\
+&= \frac{n_H(H-1)\theta^{H-2}}{n{\theta'}^{H-1}}
+\end{align}
     \item Compute its variance.
+
+\textbf{Solution:} To compute the variance of policy gradient with importance sample, we first compute its first and second moments.
+
+\begin{align}
+&\mathbb{E}_{\tau \sim p_{\theta'}(\tau)}\left[\frac{p_\theta(\tau)}{p_{\theta'}(\tau)}\nabla_\theta \log p_\theta(\tau) r(\tau)\right] \\
+=& p_{\theta'}(\tau_H) \frac{p_\theta(\tau_H)}{p_{\theta'}(\tau_H)}\nabla_\theta \log p_\theta(\tau_H) r(\tau_H)\\
+=& p_\theta(\tau_H)\nabla_\theta \log p_\theta(\tau_H) r(\tau_H) \\
+=& (H-1)\theta^{H-2}
+\end{align}
+
+\begin{align}
+&\mathbb{E}_{\tau \sim p_{\theta'}(\tau)}\left[\left(\frac{p_\theta(\tau)}{p_{\theta'}(\tau)}\nabla_\theta \log p_\theta(\tau) r(\tau)\right)^2\right] \\
+=& p_{\theta'}(\tau_H) \left(\frac{p_\theta(\tau_H)}{p_{\theta'}(\tau_H)}\nabla_\theta \log p_\theta(\tau_H) r(\tau_H)\right)^2\\
+=& (\theta')^{H-1}\left(\left(\frac{\theta}{\theta'}\right)^{H-1}(H-1)\frac{1}{\theta}\right)^2 \\
+=& \frac{(H-1)^2\theta^{2H-4}}{{\theta'}^{H-1}}
+\end{align}
+
+Combining above, we get 
+\[
+\text{VAR}_{\tau \sim p_{\theta'}(\tau)}\left[ \frac{p_\theta(\tau)}{p_{\theta'}(\tau)}\nabla_\theta \log p_\theta(\tau) r(\tau)\right] = \frac{(H-1)^2\theta^{2H-4}}{{\theta'}^{H-1}} - (H-1)\theta^{H-2} = \frac{(H-1)\theta^{H-2}}{{\theta'}^{H-1}}\left( (H-1)\theta^{H-2} - {\theta'}^{H-1}\right)
+\]
 
 \end{enumerate}
 
