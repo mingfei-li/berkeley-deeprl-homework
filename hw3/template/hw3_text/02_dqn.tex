@@ -63,6 +63,15 @@ Implement the basic DQN algorithm. You'll implement an update for the $Q$-networ
 \textbf{Deliverables}:
 \begin{itemize}
     \item Submit your logs of \verb|CartPole-v1|, and a plot with environment steps on the $x$-axis and eval return on the $y$-axis.
+    \begin{itemize}
+        \item \textbf{Solution:}
+    \end{itemize}
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.7\textwidth]{q2_4_cartpole.png}
+        \caption{Eval return plot for CartPole-v1}
+        \label{fig:q2_4_cartpole}
+    \end{figure}
     \item Run DQN with three different seeds on \verb|LunarLander-v2|:
 \begin{lstlisting}[language=bash,breaklines=true]
   python cs285/scripts/run_hw3_dqn.py -cfg experiments/dqn/lunarlander.yaml --seed 1
@@ -70,7 +79,32 @@ Implement the basic DQN algorithm. You'll implement an update for the $Q$-networ
   python cs285/scripts/run_hw3_dqn.py -cfg experiments/dqn/lunarlander.yaml --seed 3
 \end{lstlisting}
 \textbf{Your code may not reach high return (200) on Lunar Lander yet; this is okay!} Your returns may go up for a while and then collapse in some or all of the seeds.
+    \begin{itemize}
+        \item \textbf{Solution:}
+    \end{itemize}
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.7\textwidth]{q2_4_lunarlander.png}
+        \caption{Eval return plot for LunarLander-v2 across 3 seeds}
+        \label{fig:q2_4_lunarlander}
+    \end{figure}
     \item Run DQN on \verb|CartPole-v1|, but change the \verb|learning rate| to 0.05 (you can change this in the YAML config file). What happens to (a) the predicted $Q$-values, and (b) the critic error? Can you relate this to any topics from class or the analysis section of this homework?
+
+    \begin{itemize}
+        \item \textbf{Solution:} The predicted q-values were extremely overestimated in the beginning (more than 10x of max value possible) and the critic loss was extremely large too. This is related to the fact that q-learning systematically overestimates q-values, and a larger learning rate exaggerates the effect because it learns faster from the initial noisy values.
+    \end{itemize}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{q2_4_cartpole_q_value.png}
+        \caption{Q-value plot for CartPole-v1 with lr=0.05}
+        \label{fig:q2_4_cartpole_q_value}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{q2_4_cartpole_critic_loss.png}
+        \caption{Critic loss plot for CartPole-v1 with lr=0.05}
+        \label{fig:q2_4_cartpole_critic_loss}
+    \end{figure}
 \end{itemize}
 
 \subsection{Double Q-Learning}

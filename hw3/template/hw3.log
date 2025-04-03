@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.16)  2 APR 2025 22:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.16)  3 APR 2025 14:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -749,29 +749,28 @@ LaTeX Info: Redefining \labelcref on input line 2370.
 LaTeX Info: Redefining \labelcpageref on input line 2370.
 Package cleveref Info: `algorithmicx' support loaded on input line 3120.
 Package cleveref Info: `listings' support loaded on input line 3131.
-)
-No file hw3.aux.
+) (./hw3.aux)
 \openout1 = `hw3.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-(/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+ (/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count376
 \scratchdimen=\dimen307
@@ -825,11 +824,12 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \c@lstlisting=\count382
-Package hyperref Info: Link coloring OFF on input line 45.
+Package hyperref Info: Link coloring OFF on input line 47.
+(./hw3.out) (./hw3.out)
 \@outlinefile=\write5
 \openout5 = `hw3.out'.
 
-(./hw3_text/01_analysis.tex
+ (./hw3_text/01_analysis.tex
 LaTeX Font Info:    Trying to load font information for U+msa on input line 14.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -838,46 +838,10 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 14.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-
-LaTeX Warning: Reference `eq:q_target' on page 1 undefined on input line 18.
-
-
-LaTeX Warning: Reference `eq:q_update' on page 1 undefined on input line 18.
-
-
-LaTeX Warning: Reference `eq:policy_improvement' on page 1 undefined on input line 22.
-
-
-LaTeX Warning: Reference `eq:q_update' on page 1 undefined on input line 22.
-
-
-LaTeX Warning: Reference `eq:q_target' on page 1 undefined on input line 22.
-
-
-LaTeX Warning: Reference `alg:multi' on page 1 undefined on input line 22.
-
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 25.
-
-LaTeX Warning: Reference `eq:q_target' on page 1 undefined on input line 32.
-
-
-LaTeX Warning: Reference `eq:q_update' on page 1 undefined on input line 33.
-
-
-LaTeX Warning: Reference `eq:policy_improvement' on page 1 undefined on input line 34.
-
-
-LaTeX Warning: Reference `eq:q_update' on page 1 undefined on input line 75.
-
-[1{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 26.
+ [1{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
-
-LaTeX Warning: Reference `eq:data' on page 1 undefined on input line 88.
-
-
-LaTeX Warning: Reference `alg:multi' on page 1 undefined on input line 88.
-
 \i=\count383
 \i=\count384
 \i=\count385
@@ -886,82 +850,86 @@ LaTeX Warning: Reference `alg:multi' on page 1 undefined on input line 88.
 \i=\count388
 \i=\count389
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 109.
-
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 109.
+(hyperref)                removing `math shift' on input line 110.
 
 
-LaTeX Warning: Reference `eq:q_update' on page 2 undefined on input line 150.
-
-
-LaTeX Warning: Reference `eq:q_update' on page 2 undefined on input line 152.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 110.
 
 [2{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]) (./hw3_text/02_dqn.tex
 Overfull \hbox (2.24802pt too wide) in paragraph at lines 24--25
 \OT1/cmr/m/n/10 what was used in the first two as-sign-ments; make sure to in-stall these with \OT1/cmtt/m/n/10 pip install -r requirements.txt
  []
 
-[3] (/usr/local/texlive/2024/texmf-dist/tex/latex/listings/lstlang1.sty
+[3]
+<q2_4_cartpole.png, id=164, 873.2625pt x 487.8225pt>
+File: q2_4_cartpole.png Graphic file (type png)
+<use q2_4_cartpole.png>
+Package pdftex.def Info: q2_4_cartpole.png  used on input line 71.
+(pdftex.def)             Requested size: 333.88626pt x 186.51334pt.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/02/21 1.10 listings language file
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/02/21 1.10 listings language file
-) [4]) (./hw3_text/04_sac.tex [5]
+) [4 <./q2_4_cartpole.png>]
+<q2_4_lunarlander.png, id=172, 910.40125pt x 576.1525pt>
+File: q2_4_lunarlander.png Graphic file (type png)
+<use q2_4_lunarlander.png>
+Package pdftex.def Info: q2_4_lunarlander.png  used on input line 87.
+(pdftex.def)             Requested size: 333.88626pt x 211.30052pt.
+<q2_4_cartpole_q_value.png, id=173, 910.40125pt x 484.81125pt>
+File: q2_4_cartpole_q_value.png Graphic file (type png)
+<use q2_4_cartpole_q_value.png>
+Package pdftex.def Info: q2_4_cartpole_q_value.png  used on input line 98.
+(pdftex.def)             Requested size: 333.88626pt x 177.80165pt.
+<q2_4_cartpole_critic_loss.png, id=174, 910.40125pt x 485.815pt>
+File: q2_4_cartpole_critic_loss.png Graphic file (type png)
+<use q2_4_cartpole_critic_loss.png>
+Package pdftex.def Info: q2_4_cartpole_critic_loss.png  used on input line 104.
+(pdftex.def)             Requested size: 333.88626pt x 178.16977pt.
+ [5 <./q2_4_lunarlander.png> <./q2_4_cartpole_q_value.png>] [6 <./q2_4_cartpole_critic_loss.png>]) (./hw3_text/04_sac.tex [7]
 Overfull \hbox (6.54356pt too wide) in paragraph at lines 51--52
 []\OT1/cmr/m/n/10 Train an agent on [][]\OT1/cmtt/m/n/10 Pendulum-v1 []\OT1/cmr/m/n/10 with the sam-ple con-fig-u-ra-tion [][]\OT1/cmtt/m/n/10 experiments/sac/sanity_pendulum.yaml[]\OT1/cmr/m/n/10 .
  []
 
-[6]
+
 Overfull \hbox (6.96114pt too wide) in paragraph at lines 71--72
 []\OT1/cmr/m/n/10 Add the en-tropy term to the tar-get critic val-ues in [][]\OT1/cmtt/m/n/10 update_critic() []\OT1/cmr/m/n/10 and the ac-tor loss in [][]\OT1/cmtt/m/n/10 update_actor()[]\OT1/cmr/m/n/10 . 
  []
 
-[7] [8]) [9] [10]
-Underfull \hbox (badness 10000) in paragraph at lines 134--135
-
- []
-
-
+[8] [9]) [10] [11]
 Underfull \hbox (badness 10000) in paragraph at lines 136--137
 
  []
 
-[11] (./hw3.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 138--139
+
+ []
+
+[12] (./hw3.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `hw3.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `hw3.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  57BFCCB9E1905D2CBD8AA60827B05FB9;3930.
+Package rerunfilecheck Info: File `hw3.out' has not changed.
+(rerunfilecheck)             Checksum: 57BFCCB9E1905D2CBD8AA60827B05FB9;3930.
  ) ) 
 Here is how much of TeX's memory you used:
- 41238 strings out of 474116
- 876884 string characters out of 5743681
- 1988187 words of memory out of 5000000
- 62998 multiletter control sequences out of 15000+600000
+ 41314 strings out of 474116
+ 878493 string characters out of 5743681
+ 1977187 words of memory out of 5000000
+ 63063 multiletter control sequences out of 15000+600000
  568058 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  140i,16n,135p,1686b,2378s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </Users/ml/Library/texlive/2024/texmf-var/fonts/pk/ljfour/public/cm-mf-extra-bold/cmttb10.600pk></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on hw3.pdf (11 pages, 299060 bytes).
+Output written on hw3.pdf (12 pages, 575725 bytes).
 PDF statistics:
- 280 PDF objects out of 1000 (max. 8388607)
- 201 compressed objects within 3 object streams
- 76 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 375 PDF objects out of 1000 (max. 8388607)
+ 287 compressed objects within 3 object streams
+ 81 named destinations out of 1000 (max. 500000)
+ 201 words of extra memory for PDF output out of 10000 (max. 10000000)
 
