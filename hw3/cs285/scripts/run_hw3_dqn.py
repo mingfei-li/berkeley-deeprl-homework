@@ -92,7 +92,7 @@ def run_training_loop(config: dict, logger: Logger, args: argparse.Namespace):
         
         # TODO(student): Compute action
         with torch.no_grad():
-            action = agent.get_action(ptu.from_numpy(observation).unsqueeze(0), epsilon)
+            action = agent.get_action(observation, epsilon)
 
         # TODO(student): Step the environment
         next_observation, reward, done, info = env.step(action)

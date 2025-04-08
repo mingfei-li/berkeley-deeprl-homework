@@ -91,18 +91,18 @@ Implement the basic DQN algorithm. You'll implement an update for the $Q$-networ
     \item Run DQN on \verb|CartPole-v1|, but change the \verb|learning rate| to 0.05 (you can change this in the YAML config file). What happens to (a) the predicted $Q$-values, and (b) the critic error? Can you relate this to any topics from class or the analysis section of this homework?
 
     \begin{itemize}
-        \item \textbf{Solution:} The predicted q-values were extremely overestimated in the beginning (more than 10x of max value possible) and the critic loss was extremely large too. This is related to the fact that q-learning systematically overestimates q-values, and a larger learning rate exaggerates the effect because it learns faster from the initial noisy values.
+        \item \textbf{Solution:} The predicted q-values are more overestimated in the beginning than before and the critic loss is extremely large too. This is related to the fact that q-learning systematically overestimates q-values, and a larger learning rate exaggerates the effect because it learns faster from the initial noisy values.
     \end{itemize}
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.7\textwidth]{q2_4_cartpole_q_value.png}
-        \caption{Q-value plot for CartPole-v1 with lr=0.05}
+        \caption{Q-value plot for CartPole-v1 with lr=0.05 (purple) and lr=1e-3 (orange)}
         \label{fig:q2_4_cartpole_q_value}
     \end{figure}
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.7\textwidth]{q2_4_cartpole_critic_loss.png}
-        \caption{Critic loss plot for CartPole-v1 with lr=0.05}
+        \caption{Critic loss plot for CartPole-v1 with lr=0.05 (purple) and lr=1e-3 (orange)}
         \label{fig:q2_4_cartpole_critic_loss}
     \end{figure}
 \end{itemize}
@@ -126,6 +126,15 @@ Implement this functionality in \verb|dqn_agent.py|.
     You should expect a return of \textbf{200} by the end of training, and it should be fairly stable compared to your policy gradient methods from HW2.
     
     Plot returns from these three seeds in red, and the ``vanilla'' DQN results in blue, on the same set of axes. Compare the two, and describe in your own words what might cause this difference.
+    \begin{itemize}
+        \item \textbf{Solution:} Double q-learning is able to achieve above-200 returns consistently, whereas only 1 out of 3 runs of vanilla q-learning barely achieved a 200 return. This is because double q-learning is more resilient to initial random noises and hence leanrs a better policy.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{q2_5_lunarlander.png}
+        \caption{Comparison between double q-leraning (red) v.s. vanilla q-learning (blue)}
+        \label{fig:q2_5_lunarlander}
+    \end{figure}
+    \end{itemize}
 
     \item Run your DQN implementation on the \verb|MsPacman-v0| problem. Our default configuration will use double-$Q$ learning by default. You are welcome to tune hyperparameters to get it to work better, but the default parameters should work (so if they don't, you likely have a bug in your implementation). Your implementation should receive a score of around \textbf{1500} by the end of training (1 million steps. \textbf{This problem will take about 3 hours with a GPU, or {\color{red} 6 hours} without, so start early!}
     \begin{lstlisting}[language=bash,breaklines=true]

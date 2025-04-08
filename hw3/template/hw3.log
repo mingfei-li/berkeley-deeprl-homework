@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.16)  3 APR 2025 14:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.16)  7 APR 2025 23:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -864,42 +864,48 @@ Overfull \hbox (2.24802pt too wide) in paragraph at lines 24--25
  []
 
 [3]
-<q2_4_cartpole.png, id=164, 873.2625pt x 487.8225pt>
+<q2_4_cartpole.png, id=164, 912.40875pt x 487.8225pt>
 File: q2_4_cartpole.png Graphic file (type png)
 <use q2_4_cartpole.png>
 Package pdftex.def Info: q2_4_cartpole.png  used on input line 71.
-(pdftex.def)             Requested size: 333.88626pt x 186.51334pt.
+(pdftex.def)             Requested size: 333.88626pt x 178.5115pt.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/02/21 1.10 listings language file
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/02/21 1.10 listings language file
 ) [4 <./q2_4_cartpole.png>]
-<q2_4_lunarlander.png, id=172, 910.40125pt x 576.1525pt>
+<q2_4_lunarlander.png, id=172, 909.3975pt x 485.815pt>
 File: q2_4_lunarlander.png Graphic file (type png)
 <use q2_4_lunarlander.png>
 Package pdftex.def Info: q2_4_lunarlander.png  used on input line 87.
-(pdftex.def)             Requested size: 333.88626pt x 211.30052pt.
-<q2_4_cartpole_q_value.png, id=173, 910.40125pt x 484.81125pt>
+(pdftex.def)             Requested size: 333.88626pt x 178.36992pt.
+<q2_4_cartpole_q_value.png, id=173, 911.405pt x 486.81876pt>
 File: q2_4_cartpole_q_value.png Graphic file (type png)
 <use q2_4_cartpole_q_value.png>
 Package pdftex.def Info: q2_4_cartpole_q_value.png  used on input line 98.
-(pdftex.def)             Requested size: 333.88626pt x 177.80165pt.
+(pdftex.def)             Requested size: 333.88626pt x 178.34476pt.
 <q2_4_cartpole_critic_loss.png, id=174, 910.40125pt x 485.815pt>
 File: q2_4_cartpole_critic_loss.png Graphic file (type png)
 <use q2_4_cartpole_critic_loss.png>
 Package pdftex.def Info: q2_4_cartpole_critic_loss.png  used on input line 104.
 (pdftex.def)             Requested size: 333.88626pt x 178.16977pt.
- [5 <./q2_4_lunarlander.png> <./q2_4_cartpole_q_value.png>] [6 <./q2_4_cartpole_critic_loss.png>]) (./hw3_text/04_sac.tex [7]
+ [5 <./q2_4_lunarlander.png> <./q2_4_cartpole_q_value.png>]
+<q2_5_lunarlander.png, id=187, 910.40125pt x 484.81125pt>
+File: q2_5_lunarlander.png Graphic file (type png)
+<use q2_5_lunarlander.png>
+Package pdftex.def Info: q2_5_lunarlander.png  used on input line 133.
+(pdftex.def)             Requested size: 333.88626pt x 177.80165pt.
+ [6 <./q2_4_cartpole_critic_loss.png>]) (./hw3_text/04_sac.tex [7 <./q2_5_lunarlander.png>]
 Overfull \hbox (6.54356pt too wide) in paragraph at lines 51--52
 []\OT1/cmr/m/n/10 Train an agent on [][]\OT1/cmtt/m/n/10 Pendulum-v1 []\OT1/cmr/m/n/10 with the sam-ple con-fig-u-ra-tion [][]\OT1/cmtt/m/n/10 experiments/sac/sanity_pendulum.yaml[]\OT1/cmr/m/n/10 .
  []
 
-
+[8]
 Overfull \hbox (6.96114pt too wide) in paragraph at lines 71--72
 []\OT1/cmr/m/n/10 Add the en-tropy term to the tar-get critic val-ues in [][]\OT1/cmtt/m/n/10 update_critic() []\OT1/cmr/m/n/10 and the ac-tor loss in [][]\OT1/cmtt/m/n/10 update_actor()[]\OT1/cmr/m/n/10 . 
  []
 
-[8] [9]) [10] [11]
+[9] [10]) [11] [12]
 Underfull \hbox (badness 10000) in paragraph at lines 136--137
 
  []
@@ -909,7 +915,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 138--139
 
  []
 
-[12] (./hw3.aux)
+[13] (./hw3.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -918,18 +924,18 @@ Package rerunfilecheck Info: File `hw3.out' has not changed.
 (rerunfilecheck)             Checksum: 57BFCCB9E1905D2CBD8AA60827B05FB9;3930.
  ) ) 
 Here is how much of TeX's memory you used:
- 41314 strings out of 474116
- 878493 string characters out of 5743681
- 1977187 words of memory out of 5000000
- 63063 multiletter control sequences out of 15000+600000
+ 41325 strings out of 474116
+ 878745 string characters out of 5743681
+ 1966187 words of memory out of 5000000
+ 63072 multiletter control sequences out of 15000+600000
  568058 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  140i,16n,135p,1686b,2378s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </Users/ml/Library/texlive/2024/texmf-var/fonts/pk/ljfour/public/cm-mf-extra-bold/cmttb10.600pk></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on hw3.pdf (12 pages, 575725 bytes).
+Output written on hw3.pdf (13 pages, 625300 bytes).
 PDF statistics:
- 375 PDF objects out of 1000 (max. 8388607)
- 287 compressed objects within 3 object streams
- 81 named destinations out of 1000 (max. 500000)
- 201 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 383 PDF objects out of 1000 (max. 8388607)
+ 292 compressed objects within 3 object streams
+ 83 named destinations out of 1000 (max. 500000)
+ 206 words of extra memory for PDF output out of 10000 (max. 10000000)
 
