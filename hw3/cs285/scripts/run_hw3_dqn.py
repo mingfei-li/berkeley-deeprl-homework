@@ -113,6 +113,7 @@ def run_training_loop(config: dict, logger: Logger, args: argparse.Namespace):
         if done:
             reset_env_training()
 
+            logger.log_scalars({"train_return": info["episode"]["r"]}, "returns", step, "log")
             logger.log_scalar(info["episode"]["r"], "train_return", step)
             logger.log_scalar(info["episode"]["l"], "train_ep_len", step)
         else:
@@ -158,6 +159,8 @@ def run_training_loop(config: dict, logger: Logger, args: argparse.Namespace):
 
             logger.log_scalar(np.mean(returns), "eval_return", step)
             logger.log_scalar(np.mean(ep_lens), "eval_ep_len", step)
+
+            logger.log_scalars({"eval_return": np.mean(returns)}, "returns", step, "log")
 
             if len(returns) > 1:
                 logger.log_scalar(np.std(returns), "eval/return_std", step)
