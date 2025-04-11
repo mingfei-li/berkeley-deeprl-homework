@@ -6,6 +6,7 @@ import cs285.env_configs
 
 import os
 import time
+import csv
 
 import gym
 from gym import wrappers
@@ -23,7 +24,7 @@ from scripting_utils import make_logger, make_config
 MAX_NVIDEO = 2
 
 
-def run_training_loop(config: dict, logger: Logger, args: argparse.Namespace):
+def run_training_loop(config: dict, logger: Logger, args: argparse.Namespace, csv_writer=None):
     # set random seeds
     np.random.seed(args.seed)
     torch.manual_seed(args.seed)
@@ -162,6 +163,9 @@ def run_training_loop(config: dict, logger: Logger, args: argparse.Namespace):
 
             logger.log_scalars({"eval_return": np.mean(returns)}, "returns", step, "log")
 
+            if csv_writer is not None:
+                csv_writer.writerow([args.config_file, step, np.mean(returns)])
+
             if len(returns) > 1:
                 logger.log_scalar(np.std(returns), "eval/return_std", step)
                 logger.log_scalar(np.max(returns), "eval/return_max", step)
@@ -200,6 +204,7 @@ def main():
     parser.add_argument("--no_gpu", "-ngpu", action="store_true")
     parser.add_argument("--which_gpu", "-gpu_id", default=0)
     parser.add_argument("--log_interval", type=int, default=1000)
+    parser.add_argument("--log_csv", action="store_true")
 
     args = parser.parse_args()
 
@@ -209,7 +214,14 @@ def main():
     config = make_config(args.config_file)
     logger = make_logger(logdir_prefix, config)
 
-    run_training_loop(config, logger, args)
+    # init csv logger
+    if args.log_csv:
+        csv_file = open("eval_returns.csv", "a", newline="")
+        csv_writer = csv.writer(csv_file)
+        run_training_loop(config, logger, args, csv_writer)
+        csv_file.flush()
+    else:
+        run_training_loop(config, logger, args)
 
 
 if __name__ == "__main__":

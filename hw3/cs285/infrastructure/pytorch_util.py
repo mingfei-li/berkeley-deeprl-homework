@@ -70,7 +70,7 @@ def init_gpu(use_gpu=True, gpu_id=0):
         device = torch.device("cuda:" + str(gpu_id))
         print("Using GPU id {}".format(gpu_id))
     else:
-        device = torch.device("mps")
+        device = torch.device("cpu")
         print("Using CPU.")
 
 
