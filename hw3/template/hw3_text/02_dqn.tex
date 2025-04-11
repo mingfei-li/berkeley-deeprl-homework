@@ -159,4 +159,13 @@ Hyperparameter options could include:
     \item Learning rate
     \item Network architecture
     \item Exploration schedule (or, if you'd like, you can implement an alternative to $\epsilon$-greedy)
+    \begin{itemize}
+        \item \textbf{Solution:} Initially (step $<$ 30k), the model has just started learning and has such a low quality that it performs worse than taking random actions. Since training uses a much higher exploration rate than eval, it makes more random actions than eval and hence has a higher return. Then, when model quality becomes better, eval has higher returns because it uses better policy from the model more often than training.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{q2_6_eval_return.png}
+        \caption{Eval return for different learning rates. A lr that's too big/small won't get to a good enough policy.}
+        \label{fig:q2_6_eval_return.png}
+    \end{figure}
+    \end{itemize}
 \end{itemize}
