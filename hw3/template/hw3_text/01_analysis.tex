@@ -60,7 +60,7 @@ We repeat the steps in \cref{eq:q_target,eq:q_update,eq:policy_improvement} $K$ 
 \subsection{TD-Learning Bias (2 points)}
 \label{q:td_bias}
 
-\def\answer{} % <--- TODO: insert index (0/1) of answer
+\def\answer{2} % <--- TODO: insert index (0/1) of answer
 \ifsolutions\solve\thesubsection\fi
 We say an estimator $f_\D$ of $f$ constructed using data $\D$ sampled from process $P$ is \textit{unbiased} when $\mathbb{E}_{\D\sim P}[f_\D(x)-f(x)]=0$ at each $x$.
 
@@ -96,13 +96,13 @@ Indicate which of the statements \textbf{I-III} always hold in the following cas
 \ifsolutions\solve\thesubsection\else
 \begin{enumerate}
 \item $N=1$ and \ldots \makecols\ncol\heading\choices
-	{} % <--- TODO: select numbers of boxes to fill; e.g., {13} to select I and III
-	{} % <--- TODO: "
+	{3} % <--- TODO: select numbers of boxes to fill; e.g., {13} to select I and III
+	{3} % <--- TODO: "
 \item $N>1$ and \ldots \choices
 	{} % <--- TODO: "
 	{} % <--- TODO: "
 \item In the limit as $N\to\infty$ (no bootstrapping) \ldots \choices
-	{} % <--- TODO: "
+	{3} % <--- TODO: "
 	{} % <--- TODO: "
 \end{enumerate}
 \fi
@@ -111,8 +111,8 @@ Indicate which of the statements \textbf{I-III} always hold in the following cas
 \label{q:variance_estimate}
 Which of the three cases ($N = 1$, $N > 1$, $N \to \infty$) would you expect to have the highest-variance estimate of $Q$ for fixed dataset size $B$ in the limit of infinite iterations $k$? Lowest-variance?
 
-\def\highest{} % <--- TODO: insert index of highest variance answer
-\def\lowest{} % <--- TODO: insert index of lowest variance answer
+\def\highest{3} % <--- TODO: insert index of highest variance answer
+\def\lowest{1} % <--- TODO: insert index of lowest variance answer
 \ifsolutions\solve\thesubsection\fi
 \begin{minipage}{0.49\linewidth}
 Highest variance:\smallskip
@@ -136,7 +136,7 @@ Lowest variance:\smallskip
 Now say we want to represent $Q$ via function approximation rather than with a tabular representation. Assume that for any deterministic policy $\pi$ (including the optimal policy $\pi^*$), function approximation can represent the true $Q^\pi$ exactly.
 Which of the following statements are true?
 
-\def\answer{} % <--- TODO: insert index of answer(s)
+\def\answer{24} % <--- TODO: insert index of answer(s)
 \ifsolutions\solve\thesubsection\fi
 \begin{itemize}
     \checkeditem\answer1 When $N = 1$, $Q_{\phi_{k+1}}$ is an unbiased estimate of the $Q$-function of the last policy $Q^{\pi_k}$.
@@ -153,6 +153,14 @@ We can use importance sampling to make the $N$-step update work off-policy with 
 Do we need to change \eqref{eq:q_update} when $N=1$? What about as $N\to\infty$? 
 
 You may assume that $\pi'$ always assigns positive mass to each action. [Hint: re-weight each term in the sum using a ratio of likelihoods from the policies $\pi$ and $\pi'$.]
+
+\textbf{Solution}: Updated target is 
+
+\[
+  y_{j,t} \gets \left(\prod_{t'=t}^{t+N-1}\frac{\pi(a_{t'}|s_{t'})}{\pi'(a_{t'}|s_{t'})}\right)\left(\biggl(\;\sum_{t'=t}^{t+N-1} \gamma^{t'-t} r_{j,t'}\biggr)+\gamma^{N} \max _{\mathbf{a}_{j,t+N}} \Q\left(\mathbf{s}_{j,t+N}, \mathbf{a}_{j,t+N}\right)\right) \\
+\]
+
+We do need to change it for $N \to \infty$, but not $N=1$.
 
  
 \ifsolutions\solve\thesubsection\else
