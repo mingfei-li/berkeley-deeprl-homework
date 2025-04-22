@@ -103,6 +103,15 @@ Note that the actions $a$ are sampled from $\pi_\theta$, and we do \textbf{not} 
     \item Train an agent on \verb|HalfCheetah-v4| using the provided config (\verb|halfcheetah_reinforce1.yaml|). Note that this configuration uses only one sampled action per training example.
     \item Train another agent with \verb|halfcheetah_reinforce_10.yaml|. This configuration takes many samples from the actor for computing the REINFORCE gradient (we'll call this REINFORCE-10, and the single-sample version REINFORCE-1). Plot the results (evaluation return over time) on the same axes as the single-sample REINFORCE. Compare and explain your results.
 \end{itemize}
+\textbf{Solution:} THe 10-sample configuration achieves much higher return than the single-sample one, because the policy gradient has a much lower variance due to 10x more samples.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{q3_1_3_eval_return.png}
+    \caption{Eval return for single-sample REINFORCE (purple) v.s. 10-sample REINFORCE (black)}
+    \label{fig:q3_1_3_eval_return}
+\end{figure}
+
+
 
 \subsubsection{Actor with REPARAMETRIZE}
 REINFORCE works quite well with many samples, but particularly in high-dimensional action spaces, it starts to require a lot of samples to give low variance. We can improve this by using the reparametrized gradient. Parametrize $\pi_\theta$ as $\mu_\theta(s) + \sigma_\theta(s)\epsilon$, where $\epsilon$ is normally distributed. Then we can write:
