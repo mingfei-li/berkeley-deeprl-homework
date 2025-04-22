@@ -153,7 +153,7 @@ class SoftActorCritic(nn.Module):
             next_qs[0::2,...] = next_qs_old[1::2,...]
             next_qs[1::2,...] = next_qs_old[0::2,...]
         elif self.target_critic_backup_type == "min":
-            next_qs = next_qs.mean(dim=0)
+            next_qs, _ = next_qs.min(dim=0)
         elif self.target_critic_backup_type == "mean":
             next_qs = next_qs.mean(dim=0)
         else:

@@ -163,5 +163,29 @@ Implement double-$Q$ and clipped double-$Q$ in the \verb|q_backup_strategy| func
 \textbf{Deliverables}:
 \begin{itemize}
     \item Run single-$Q$, double-$Q$, and clipped double-$Q$ on \verb|Hopper-v4| using the corresponding configuration files. Which one works best? Plot the logged \verb|eval_return| from each of them as well as \verb|q_values|. Discuss how these results relate to overestimation bias.
+    \begin{itemize}
+        \item \textbf{Solution:} Double-Q mitigates overestimation bias a little bit which leads to slightly better results, and Clip-Q mitigates the bias a lot better and hence has a much better retunr (600 v.s. 400).
+    \end{itemize}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{q3_1_5_hopper_eval_return.png}
+        \caption{Eval return for Hopper-v4: single-Q (yellow), double-Q (blue), clipped double-Q (green)}
+        \label{fig:q3_1_5_hopper_eval_return}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{q3_1_5_hopper_q.png}
+        \caption{Q-values for Hopper-v4: single-Q (yellow), double-Q (blue), clipped double-Q (green)}
+        \label{fig:q3_1_5_hopper_q}
+    \end{figure}
     \item Pick the best configuration (single-$Q$/double-$Q$/clipped double-$Q$, or REDQ if you implement it) and run it on \verb|Humanoid-v4| using \verb|humanoid.yaml| (edit the config to use the best option). You can truncate it after 500K environment steps. If you got results from the humanoid environment in the last homework, plot them together with environment steps on the $x$-axis and evaluation return on the $y$-axis. Otherwise, we will provide a humanoid log file that you can use for comparison. How do the off-policy and on-policy algorithms compare in terms of sample efficiency? \textit{Note: if you'd like to run training to completion (5M steps), you should get a proper, walking humanoid! You can run with videos enabled by using \texttt{-nvid 1}. If you run with videos, you can strip videos from the logs for submission with \href{https://gist.github.com/kylestach/e9964f5f34ee74367547dec83eaf5fae}{this script}.}
+    \begin{itemize}
+        \item \textbf{Solution:} Off-policy algorithm (SAC) is much more sample efficient than on-policy algorithm (Policy Gradient) -- achieves about 1.5x return with the same amount of environment steps.
+    \end{itemize}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{q3_1_5_humanoid_eval_return.png}
+        \caption{Eval return for Humanoid-v4: off-policy (pink) v.s. on-policy (green)}
+        \label{fig:q3_1_5_humanoid_eval_return}
+    \end{figure}
 \end{itemize}
