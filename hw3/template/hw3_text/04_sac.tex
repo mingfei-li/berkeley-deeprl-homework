@@ -133,7 +133,19 @@ This gradient estimator often gives a much lower variance, so it can be used wit
 \textbf{Deliverables}: 
 \begin{itemize}
     \item Train (once again) on \verb|HalfCheetah-v4| with \verb|halfcheetah_reparametrize.yaml|. Plot results for all three gradient estimators (REINFORCE-1, REINFORCE-10 samples, and REPARAMETRIZE) on the same set of axes, with number of environment steps on the $x$-axis and evaluation return on the $y$-axis.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{q3_1_4_half_cheetah.png}
+        \caption{Eval return for HalfCheetah-v4 with single-sample REINFORCE (purple) v.s. 10-sample REINFORCE (green) v.s. REPARAMETRIZE (orange)}
+        \label{fig:q3_1_4_half_cheetah}
+    \end{figure}
     \item Train an agent for the \verb|Humanoid-v4| environment with \verb|humanoid_sac.yaml| and plot results.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{q3_1_4_humanoid.png}
+        \caption{Eval return for Humanoid-v4}
+        \label{fig:q3_1_4_humanoid}
+    \end{figure}
 \end{itemize}
 
 \subsubsection{Stabilizing Target Values}
