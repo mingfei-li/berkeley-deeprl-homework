@@ -127,7 +127,12 @@ def run_training_loop(
             )
         else:
             # TODO(student): collect at least config["batch_size"] transitions with our `actor_agent`
-            trajs, envsteps_this_batch = ...
+            trajs, envsteps_this_batch = utils.sample_trajectories(
+                env,
+                mb_agent,
+                config["batch_size"],
+                ep_len,
+            )
 
         total_envsteps += envsteps_this_batch
         logger.log_scalar(total_envsteps, "total_envsteps", itr)

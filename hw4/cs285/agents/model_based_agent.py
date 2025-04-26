@@ -138,6 +138,10 @@ class ModelBasedAgent(nn.Module):
         """
         obs = ptu.from_numpy(obs)
         acs = ptu.from_numpy(acs)
+        obs_acs = (torch.cat([obs, acs], dim=1) - self.obs_acs_mean) / (self.obs_acs_std + 1e-6)
+        deltas = self.dynamics_models[i](obs_acs) * (self.obs_delta_std + 1e-6) + self.obs_delta_mean
+        pred_next_obs = obs + deltas
+        
         # TODO(student): get the model's predicted `next_obs`
         # HINT: make sure to *unnormalize* the NN outputs (observation deltas)
         # Same hints as `update` above, avoid nasty divide-by-zero errors when
@@ -167,7 +171,9 @@ class ModelBasedAgent(nn.Module):
         obs = np.tile(obs, (self.ensemble_size, self.mpc_num_action_sequences, 1))
 
         # TODO(student): for each batch of actions in in the horizon...
-        for acs in ...:
+        horizon = action_sequences.shape[1]
+        action_list = [action_sequences[:,i,:] for i in range(horizon)]
+        for acs in action_list:
             assert acs.shape == (self.mpc_num_action_sequences, self.ac_dim)
             assert obs.shape == (
                 self.ensemble_size,
@@ -177,7 +183,9 @@ class ModelBasedAgent(nn.Module):
 
             # TODO(student): predict the next_obs for each rollout
             # HINT: use self.get_dynamics_predictions
-            next_obs = ...
+            next_obs = np.stack([
+                self.get_dynamics_predictions(i, obs[i], acs) for i in range(self.ensemble_size)
+            ])
             assert next_obs.shape == (
                 self.ensemble_size,
                 self.mpc_num_action_sequences,
@@ -190,7 +198,13 @@ class ModelBasedAgent(nn.Module):
             # respectively, and returns a tuple of `(rewards, dones)`. You can 
             # ignore `dones`. You might want to do some reshaping to make
             # `next_obs` and `acs` 2-dimensional.
-            rewards = ...
+            next_obs_flattened = next_obs.reshape(-1, self.ob_dim)
+            acs_flattend = acs.reshape(-1, self.ac_dim)
+            rewards, _ = self.env.get_reward(next_obs_flattened, acs_flattend)
+            rewards = rewards.reshape(
+                self.ensemble_size,
+                self.mpc_num_action_sequences,
+            )
             assert rewards.shape == (self.ensemble_size, self.mpc_num_action_sequences)
 
             sum_of_rewards += rewards
