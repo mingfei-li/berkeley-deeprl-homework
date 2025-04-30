@@ -102,4 +102,19 @@ backgroundcolor = \color{light-yellow}
     \caption{Eval return for Obstacles}
 \end{figure}
 
+\newpage
+\section*{Problem 4}
+Observations with respect to different factors:
+\begin{itemize}
+    \item \textbf{Horizon}: a shorter horizon of 5 (green line) performed the best, whereas a longer horizon of 20 (orange line) performed the worst. This is because the longer the horizon is, the more likely the model predicted dynamics are inaccurate, which leads to worse estimation of the total reward.
+    \item \textbf{Number of action sequences}: doubling the number of action sequences to 2000 achieved the second best peformance, whereas reducing it to 500 acehived the second worst. This makes sense because the best among a bigger candidate set is likely better than the best among a smaller set. 
+    \item \textbf{Ensemble size}: a smaller ensemble size of 1 (pink line) clearly performed worse than the baseline (purple line), whereas a bigger ensemble size of 6 (yellow line) didn't do better than baseline. This seems to suggest that there's a diminishing return point of increasing the size of the ensemble.
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{p4_eval_return.png}
+    \caption{Eval return for Reacher.}
+\end{figure}
+
 \end{document}

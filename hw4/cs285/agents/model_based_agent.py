@@ -230,16 +230,35 @@ class ModelBasedAgent(nn.Module):
 
         if self.mpc_strategy == "random":
             # evaluate each action sequence and return the best one
-            rewards = self.evaluate_action_sequences(obs, action_sequences)
-            assert rewards.shape == (self.mpc_num_action_sequences,)
-            best_index = np.argmax(rewards)
-            return action_sequences[best_index][0]
+            pass
         elif self.mpc_strategy == "cem":
             elite_mean, elite_std = None, None
+            action_sequences = put.from_numpy(action_sequences)
             for i in range(self.cem_num_iters):
                 # TODO(student): implement the CEM algorithm
                 # HINT: you need a special case for i == 0 to initialize
                 # the elite mean and std
-                pass
+                rewards = self.evaluate_action_sequences(obs, action_sequences)
+                _, indices = torch.topk(rewards, k=cem_num_elites, dim=0)
+                elites = action_sequences[indices, :, :]
+                elite_mean_new = torch.mean(action_sequences, dim=0, keepdims=True)
+                elite_std_new = torch.std(action_sequences, dim=0, keepdims=True)
+                if i == 0:
+                    elite_mean = elite_mean_new
+                    elite_std = elite_std_new
+                else:
+                    elite_mean = self.alpha*elite_mean_new + (1 - self.alpha)*elite_mean
+                    elite_std = self.alpha*elite_std_new + (1 - self.alpha)*elite_std
+                action_sequences = torch.randn(
+                    self.mpc_num_action_sequences,
+                    self.mpc_horizon,
+                    self.ac_dim,
+                ) * elite_std + elite_mean
+            action_sequences = ptu.to_numpy(action_sequences)
         else:
             raise ValueError(f"Invalid MPC strategy '{self.mpc_strategy}'")
+        
+        rewards = self.evaluate_action_sequences(obs, action_sequences)
+        assert rewards.shape == (self.mpc_num_action_sequences,)
+        best_index = np.argmax(rewards)
+        return action_sequences[best_index][0]

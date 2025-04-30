@@ -51,7 +51,7 @@ def mpc_config(
             gym.make(env_name, render_mode="single_rgb_array" if render else None),
         )
 
-    log_string = f"{env_name}_{exp_name}_l{num_layers}_h{hidden_size}_mpc{mpc_strategy}_horizon{mpc_horizon}_actionseq{mpc_num_action_sequences}"
+    log_string = f"{env_name}_{exp_name}_l{num_layers}_h{hidden_size}_mpc{mpc_strategy}_horizon{mpc_horizon}_actionseq{mpc_num_action_sequences}_ensemble{ensemble_size}"
     if mpc_strategy == "cem":
         log_string += f"_cem_iters{cem_num_iters}"
 

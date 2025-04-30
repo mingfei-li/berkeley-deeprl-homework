@@ -45,6 +45,13 @@ def collect_mbpo_rollout(
         # Average the ensemble predictions directly to get the next observation.
         # Get the reward using `env.get_reward`.
 
+        ac = sac_agent.get_action(ob)
+        next_obs = np.mean([
+            mb_agent.get_dynamics_predictions(i, ob, ac) 
+            for i in range(mb_agent.ensemble_size)
+        ])
+        rew = env.get_reward(next_obs, ac)
+
         obs.append(ob)
         acs.append(ac)
         rewards.append(rew)
@@ -129,7 +136,7 @@ def run_training_loop(
             # TODO(student): collect at least config["batch_size"] transitions with our `actor_agent`
             trajs, envsteps_this_batch = utils.sample_trajectories(
                 env,
-                mb_agent,
+                actor_agent,
                 config["batch_size"],
                 ep_len,
             )
