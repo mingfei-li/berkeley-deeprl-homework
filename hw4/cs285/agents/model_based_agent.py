@@ -233,28 +233,26 @@ class ModelBasedAgent(nn.Module):
             pass
         elif self.mpc_strategy == "cem":
             elite_mean, elite_std = None, None
-            action_sequences = put.from_numpy(action_sequences)
             for i in range(self.cem_num_iters):
                 # TODO(student): implement the CEM algorithm
                 # HINT: you need a special case for i == 0 to initialize
                 # the elite mean and std
                 rewards = self.evaluate_action_sequences(obs, action_sequences)
-                _, indices = torch.topk(rewards, k=cem_num_elites, dim=0)
+                indices = np.argsort(-rewards)[:self.cem_num_elites]
                 elites = action_sequences[indices, :, :]
-                elite_mean_new = torch.mean(action_sequences, dim=0, keepdims=True)
-                elite_std_new = torch.std(action_sequences, dim=0, keepdims=True)
+                elite_mean_new = np.mean(action_sequences, axis=0, keepdims=True)
+                elite_std_new = np.std(action_sequences, axis=0, keepdims=True)
                 if i == 0:
                     elite_mean = elite_mean_new
                     elite_std = elite_std_new
                 else:
-                    elite_mean = self.alpha*elite_mean_new + (1 - self.alpha)*elite_mean
-                    elite_std = self.alpha*elite_std_new + (1 - self.alpha)*elite_std
-                action_sequences = torch.randn(
+                    elite_mean = self.cem_alpha*elite_mean_new + (1 - self.cem_alpha)*elite_mean
+                    elite_std = self.cem_alpha*elite_std_new + (1 - self.cem_alpha)*elite_std
+                action_sequences = np.random.normal(size=(
                     self.mpc_num_action_sequences,
                     self.mpc_horizon,
                     self.ac_dim,
-                ) * elite_std + elite_mean
-            action_sequences = ptu.to_numpy(action_sequences)
+                )) * elite_std + elite_mean
         else:
             raise ValueError(f"Invalid MPC strategy '{self.mpc_strategy}'")
         
