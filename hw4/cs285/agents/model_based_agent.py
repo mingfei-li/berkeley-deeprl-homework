@@ -238,10 +238,10 @@ class ModelBasedAgent(nn.Module):
                 # HINT: you need a special case for i == 0 to initialize
                 # the elite mean and std
                 rewards = self.evaluate_action_sequences(obs, action_sequences)
-                indices = np.argsort(-rewards)[:self.cem_num_elites]
+                indices = np.argsort(rewards)[-self.cem_num_elites:]
                 elites = action_sequences[indices, :, :]
-                elite_mean_new = np.mean(action_sequences, axis=0, keepdims=True)
-                elite_std_new = np.std(action_sequences, axis=0, keepdims=True)
+                elite_mean_new = np.mean(elites, axis=0, keepdims=True)
+                elite_std_new = np.std(elites, axis=0, keepdims=True)
                 if i == 0:
                     elite_mean = elite_mean_new
                     elite_std = elite_std_new
