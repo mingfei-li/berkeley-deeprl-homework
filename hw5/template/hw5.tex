@@ -250,6 +250,18 @@ python cs285/scripts/run_hw5_explore.py \
 \end{lstlisting}
 These scripts will save visualizations of the final dataset in the \verb+exploration+ directory, as well as intermediate results in the Tensorboard logs. Include the final dataset visualization in your report.
 
+\textbf{Solution:}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.32\textwidth]{PointmassEasy-v0_random.png}~
+    \includegraphics[width=0.32\textwidth]{PointmassMedium-v0_random.png}~
+    \includegraphics[width=0.32\textwidth]{PointmassHard-v0_random.png}~
+    \vspace{-10pt}
+    \caption{Figures depicting random exploration in \texttt{easy} (left), \texttt{medium} (middle) and \texttt{hard} (right) environments.}
+    \vspace{-10pt}
+\end{figure}
+
 \subsection{Random Network Distillation}
 \textbf{What you will implement}: the RND algorithm for exploration. You will need to change \verb+cs285/agents/rnd_agent.py+. In addition, you should also thoroughly read through the training scheme in \verb+run_hw5_explore.py+. It's very similar to the DQN training scheme you implemented in HW3.
 
