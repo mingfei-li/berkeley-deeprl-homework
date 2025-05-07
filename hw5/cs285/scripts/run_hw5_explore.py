@@ -71,6 +71,10 @@ def run_training_loop(config: dict, logger: Logger, args: argparse.Namespace):
     )
 
     ep_len = env.spec.max_episode_steps or env.max_episode_steps
+    print('**********')
+    print(f'env.spec.max_episode_steps={env.spec.max_episode_steps}')
+    print(f'env.max_episode_steps={env.max_episode_steps}')
+    print('**********')
 
     observation = None
 
