@@ -57,7 +57,43 @@ backgroundcolor = \color{light-yellow}
     \textbf{Due December 3rd, 11:59 pm} \\
 \end{centering}
 
-\section*{Problem 1}
+\setcounter{section}{1}
+\section{Analysis}
+\subsection*{Problem 2.1}
+\begin{align*}
+Q^\pi - \widehat{Q}^\pi &= (I-\gamma P^\pi)^{-1}r - (I-\gamma P^\pi)^{-1}(I-\gamma P^\pi)\widehat{Q}^\pi \\
+&= (I-\gamma P^\pi)^{-1}(I- \gamma \widehat{P}^\pi)\widehat{Q}^\pi - (I-\gamma P^\pi)^{-1}(I-\gamma P^\pi)\widehat{Q}^\pi \\
+&= (I-\gamma P^\pi)^{-1}[(I- \gamma \widehat{P}^\pi) - (I-\gamma P^\pi)]\widehat{Q}^\pi \\
+&= (I-\gamma P^\pi)^{-1}(\gamma P^\pi - \gamma \widehat{P}^\pi)\widehat{Q}^\pi \\
+&= \gamma (I-\gamma P^\pi)^{-1}(P^\pi - \widehat{P}^\pi)\widehat{Q}^\pi \\
+&= \gamma (I-\gamma P^\pi)^{-1}(P\Pi - \widehat{P}\Pi)\widehat{Q}^\pi \\
+&= \gamma (I-\gamma P^\pi)^{-1}(P - \widehat{P})\Pi\widehat{Q}^\pi \\
+&= \gamma (I-\gamma P^\pi)^{-1}(P - \widehat{P})\widehat{V}^\pi \\
+\end{align*}
+
+\subsection*{Problem 2.2}
+\begin{enumerate}
+    \item Correct. Although $\widehat{V}^\pi$ depends on learned dynamics, the Hoeffding's inequality is only applied to bound $||P(\cdot | s, a) - \widehat{P}(\cdot | s, a)||_1$ which is agnostic to $\widehat{V}^\pi$.
+    \item Incorrect. For any $s, a$ and $N$ samples $\{s_i'\}$ from $P(\cdot |s, a)$, since $\widehat{V}^\pi$ depends on learned dynamics for all states, $X_i = I_{s_i'}\widehat{V}$ are not independent. So, Hoeffding's inequality doesn't apply.
+    \item Correct (subject to a small typo correction). Since $V^*$ doesn't depend on the learned dynamics, the reasoning given in Hint 3 is applicable. Specifically, fix $s, a$, let $s'_i$ denote the $i$-th independent sample from $P(\cdot |s, a)$ and let $X_i := I_{s'_i}V^*$. Then, as pointed out in Hint 3, we have $\mathbb{E}[X_i] = P(\cdot |s, a) \cdot V^*$ and $\bar{X}_N := \frac{1}{N}\sum_i X_i = \widehat{P}(\cdot |s, a) \cdot V^*$. Since $V^*$ is constant independent of the samples, $X_i$'s are i.i.d, and $0 \leq X_i \leq ||V^*||_\infty \leq \frac{1}{1 - \gamma}$.
+    So, Hoeffding's inequality is applicable and for $\epsilon = \frac{1}{1-\gamma}\sqrt{\frac{1}{2N}\log\frac{2|S||A|}{\delta}}$, we have 
+\begin{align*}
+P(\bar{X}_N \geq E[X_i] + \epsilon) &\leq \exp(-\frac{2N\epsilon^2}{||V^*||^2_\infty}) \leq \frac{\delta}{2|S||A|}
+\end{align*}
+And similar results hold for $P(\bar{X}_N \leq E[X_i] - \epsilon)$. So, applying union bound, we get
+\begin{align*}
+P(|\widehat{P}(\cdot | s, a)\cdot V^* - P(\cdot | s, a) \cdot V^*| \leq \epsilon) = P(|\bar{X}_N - E[X_i]| \leq \epsilon) \geq 1 - \frac{\delta}{|S||A|}
+\end{align*}   
+Applying union bound across all $s, a$, we get that with probability $1 - \delta$, it holds that
+\begin{align*}
+||(\widehat{P} - P) \cdot V^*||_\infty = \max_{s, a}|\widehat{P}(\cdot | s, a)\cdot V^* - P(\cdot | s, a) \cdot V^*| \leq \frac{1}{1-\gamma}\sqrt{\frac{1}{2N}\log\frac{2|S||A|}{\delta}}
+\end{align*}
+    \item Incorrect. Similar to item 2, $\widehat{V}^*$ depends on learned dynamics so the assumptions for applying Hoeffding's inequality don't hold.
+\end{enumerate}
+
+\setcounter{section}{3}
+\section{Code}
+\subsection*{Problem 1}
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{p1_original_loss_curve.png}
@@ -77,7 +113,7 @@ backgroundcolor = \color{light-yellow}
 \end{figure}
 
 \newpage
-\section*{Problem 2}
+\subsection*{Problem 2}
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{p2_eval_return.png}
@@ -85,7 +121,7 @@ backgroundcolor = \color{light-yellow}
 \end{figure}
 
 \newpage
-\section*{Problem 3}
+\subsection*{Problem 3}
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{p3_cheetah_eval_return.png}
@@ -103,7 +139,7 @@ backgroundcolor = \color{light-yellow}
 \end{figure}
 
 \newpage
-\section*{Problem 4}
+\subsection*{Problem 4}
 Observations with respect to different factors:
 \begin{itemize}
     \item \textbf{Horizon}: a shorter horizon of 5 (green line) performed the best, whereas a longer horizon of 20 (orange line) performed the worst. This is because the longer the horizon is, the more likely the model predicted dynamics are inaccurate, which leads to worse estimation of the total reward.
@@ -118,7 +154,7 @@ Observations with respect to different factors:
 \end{figure}
 
 \newpage
-\section*{Problem 5}
+\subsection*{Problem 5}
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{p5_eval_return.png}
@@ -126,7 +162,7 @@ Observations with respect to different factors:
 \end{figure}
 
 \newpage
-\section*{Problem 6}
+\subsection*{Problem 6}
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{p6_eval_return.png}
