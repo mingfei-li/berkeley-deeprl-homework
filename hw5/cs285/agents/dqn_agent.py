@@ -57,15 +57,23 @@ class DQNAgent(nn.Module):
 
         return ptu.to_numpy(action).squeeze(0).item()
 
-    def update_critic(
+    def compute_critic_loss(
         self,
         obs: torch.Tensor,
         action: torch.Tensor,
         reward: torch.Tensor,
         next_obs: torch.Tensor,
         done: torch.Tensor,
-    ) -> dict:
-        """Update the DQN critic, and return stats for logging."""
+    ) -> Tuple[torch.Tensor, dict, dict]:
+        """
+        Compute the loss for the DQN critic.
+
+        Returns:
+         - loss: torch.Tensor, the MSE loss for the critic
+         - metrics: dict, a dictionary of metrics to log
+         - variables: dict, a dictionary of variables that can be used in subsequent calculations
+        """
+
         (batch_size,) = reward.shape
 
         # Compute target values
@@ -73,8 +81,6 @@ class DQNAgent(nn.Module):
             # TODO(student): compute target values
             next_qa_values = self.target_critic(next_obs)
 
-            # print(f'next_obs={next_obs.shape}')
-            # print(f'next_qa_values={next_qa_values.shape}')
             if self.use_double_q:
                 next_action = torch.argmax(self.critic(next_obs), dim=1, keepdims=True)
             else:
@@ -89,6 +95,31 @@ class DQNAgent(nn.Module):
         q_values = torch.gather(qa_values, 1, action.unsqueeze(1)) # Compute from the data actions; see torch.gather
         loss = self.critic_loss(q_values.view(-1), target_values.view(-1))
 
+        return (
+            loss,
+            {
+                "critic_loss": loss.item(),
+                "q_values": q_values.mean().item(),
+                "target_values": target_values.mean().item(),
+            },
+            {
+                "qa_values": qa_values,
+                "q_values": q_values,
+            },
+        )
+
+    def update_critic(
+        self,
+        obs: torch.Tensor,
+        action: torch.Tensor,
+        reward: torch.Tensor,
+        next_obs: torch.Tensor,
+        done: torch.Tensor,
+    ) -> dict:
+        """Update the DQN critic, and return stats for logging."""
+
+        loss, metrics, _ = self.compute_critic_loss(obs, action, reward, next_obs, done)
+
         self.critic_optimizer.zero_grad()
         loss.backward()
         grad_norm = torch.nn.utils.clip_grad.clip_grad_norm_(
@@ -98,12 +129,7 @@ class DQNAgent(nn.Module):
 
         self.lr_scheduler.step()
 
-        return {
-            "critic_loss": loss.item(),
-            "q_values": q_values.mean().item(),
-            "target_values": target_values.mean().item(),
-            "grad_norm": grad_norm.item(),
-        }
+        return metrics
 
     def update_target_critic(self):
         self.target_critic.load_state_dict(self.critic.state_dict())
