@@ -319,6 +319,18 @@ python ./cs285/scripts/run_hw5_offline.py \
 
 On the Medium environment, create several experiment variations in which the value of the $\alpha$ parameter is varied, from $\alpha=0$ (equivalent to DQN) to $\alpha=10$. Show both resulting $Q$-values and evaluation performances in a plot. In the caption, describe how the $\alpha$ parameter affects training and performance in offline RL.
 
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{4_1_q_values.png}
+    \caption{Q-values for CQL with diffrent $\alpha$ values. As $alpha$ increases, the corresponding Q-value decreases, with the exception of $\alpha=10$ which has higher q-value than $\alpha=1$ and $\alpha=5$.}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{4_1_eval_return.png}
+    \caption{Eval returns for CQL with diffrent $\alpha$ values. An $\alpha=0.1$ achieves the best performance, whereas big $\alpha$ values like $5$ or $10$ significantly hurt performance.}
+\end{figure}
+
 \subsection{Policy Constraint Methods: IQL and AWAC}
 While CQL learns an actor via a modification to actor-critic algorithms like DQN that regularizes actions towards those found in the dataset by decreasing OOD $Q$-values, AWAC learns an in-distribution policy directly by performing weighted behavior cloning on the dataset.
 
