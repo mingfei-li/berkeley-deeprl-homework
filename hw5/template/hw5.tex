@@ -331,11 +331,19 @@ On the Medium environment, create several experiment variations in which the val
     \caption{Eval returns for CQL with diffrent $\alpha$ values. An $\alpha=0.1$ achieves the best performance, whereas big $\alpha$ values like $5$ or $10$ significantly hurt performance.}
 \end{figure}
 
+\newpage
 \subsection{Policy Constraint Methods: IQL and AWAC}
 While CQL learns an actor via a modification to actor-critic algorithms like DQN that regularizes actions towards those found in the dataset by decreasing OOD $Q$-values, AWAC learns an in-distribution policy directly by performing weighted behavior cloning on the dataset.
 
 Implement AWAC in \verb+cs285/agents/awac_agent.py+, and IQL in \verb+cs285/agents/iql_agent.py+. Compare them using the IQL and AWAC configuration files in the \verb+experiments+ directory. Report evaluation curves for both approaches.
 
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{4_2_eval_return.png}
+    \caption{Eval returns for medium environment with different methods. IQL eventually outperforms DQN/CQL whereas AWAC is very unstable.}
+\end{figure}
+
+\newpage
 \subsection{Data ablations}
 Finally, compare the performance of offline RL under several different sizes of dataset. Run RND with \verb+total_steps+ 1000, 5000, 10000, and 20000 on either the Medium or Hard environment, creating a new dataset for each variation (you will need to make several .yaml config files for this). Then, train a CQL agent on each dataset and report its performance as well as evaluation curves.
 
