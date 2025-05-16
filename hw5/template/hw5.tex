@@ -346,7 +346,13 @@ Implement AWAC in \verb+cs285/agents/awac_agent.py+, and IQL in \verb+cs285/agen
 \newpage
 \subsection{Data ablations}
 Finally, compare the performance of offline RL under several different sizes of dataset. Run RND with \verb+total_steps+ 1000, 5000, 10000, and 20000 on either the Medium or Hard environment, creating a new dataset for each variation (you will need to make several .yaml config files for this). Then, train a CQL agent on each dataset and report its performance as well as evaluation curves.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{4_3_eval_return.png}
+    \caption{Eval returns for hard environment with different sizes of datasets. With 20000 exploration steps, CQL acheives a peak return of -41.4 whereas few steps of exploration doesn't get CQL anywhere}
+\end{figure}
 
+\newpage
 \section{Online Fine-Tuning}
 So far we only support training an algorithm purely offline, using data collected in a previous run. In \verb+run_hw5_finetune.py+, implement online fine-tuning by first loading an offline dataset and taking a fixed number of training steps with an offline RL algorithm of your choice (IQL, CQL, or AWAC) and then switching to online learning while keeping all of the data in the dataset to initialize your replay buffer.
 

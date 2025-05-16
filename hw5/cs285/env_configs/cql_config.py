@@ -18,8 +18,10 @@ def cql_config(
     **kwargs,
 ):
     config = basic_dqn_config(total_steps=total_steps, discount=discount, **kwargs)
-    config["log_name"] = "{env_name}_cql{cql_alpha}".format(
-        env_name=config["env_name"], cql_alpha=cql_alpha
+    config["log_name"] = "{env_name}_cql{cql_alpha}_{dataset_name}".format(
+        env_name=config["env_name"],
+        cql_alpha=cql_alpha,
+        dataset_name=config["dataset_name"],
     )
     config["agent"] = "cql"
 
