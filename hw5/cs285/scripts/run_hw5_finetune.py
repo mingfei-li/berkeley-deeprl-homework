@@ -49,7 +49,7 @@ def run_training_loop(config: dict, logger: Logger, args: argparse.Namespace):
     observation = None
 
     # Replay buffer
-    replay_buffer = ReplayBuffer(capacity=config["total_steps"])
+    #replay_buffer = ReplayBuffer(capacity=config["total_steps"])
 
     observation = env.reset()
 
@@ -58,8 +58,32 @@ def run_training_loop(config: dict, logger: Logger, args: argparse.Namespace):
     num_offline_steps = config["offline_steps"]
     num_online_steps = config["total_steps"] - num_offline_steps
 
+    with open(os.path.join(args.dataset_dir, f"{config['dataset_name']}.pkl"), "rb") as f:
+        replay_buffer = pickle.load(f)
+
     for step in tqdm.trange(config["total_steps"], dynamic_ncols=True):
         # TODO(student): Borrow code from another online training script here. Only run the online training loop after `num_offline_steps` steps.
+        epsilon = exploration_schedule.value(step)
+        recent_observations.append(observation)
+
+        if step >= num_offline_steps:
+            with torch.no_grad():
+                action = agent.get_action(observation)
+            next_observation, reward, done, info = env.step(action)
+            replay_buffer.insert(
+                observation,
+                action,
+                reward,
+                next_observation,
+                done and not info.get("TimeLimit.truncated", False),
+            )
+
+            if done:
+                logger.log_scalar(info["episode"]["r"], "train_return", step)
+                logger.log_scalar(info["episode"]["l"], "train_ep_len", step)
+                observation = env.reset()
+            else:
+                observation = next_observation
 
         # Main training loop
         batch = replay_buffer.sample(config["batch_size"])
@@ -119,10 +143,10 @@ def run_training_loop(config: dict, logger: Logger, args: argparse.Namespace):
             )
 
     # Save the final dataset
-    dataset_file = os.path.join(args.dataset_dir, f"{config['dataset_name']}.pkl")
-    with open(dataset_file, "wb") as f:
-        pickle.dump(replay_buffer, f)
-        print("Saved dataset to", dataset_file)
+    # dataset_file = os.path.join(args.dataset_dir, f"{config['dataset_name']}.pkl")
+    # with open(dataset_file, "wb") as f:
+    #     pickle.dump(replay_buffer, f)
+    #     print("Saved dataset to", dataset_file)
 
     # Render final heatmap
     fig = visualize(
