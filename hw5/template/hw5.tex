@@ -360,6 +360,13 @@ Report results as evaluation returns, clearly indicating the point at which onli
 
 With online fine-tuning, your policy should be able to (stably) reach high reward (at least -20) on \verb+PointmassHard-v0+.
 
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{5_eval_return.png}
+    \caption{Eval returns for hard environment with different offline + finetune methods. CQL and AWAC achieve the highest returns with best stability, whereas IQL and DQN are much less stable.}
+\end{figure}
+
+\newpage
 \section{Submitting the code and experiment runs}
 In order to turn in your code and experiment logs, create a folder that contains the following: 
 \begin{itemize}
